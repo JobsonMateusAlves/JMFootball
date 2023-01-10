@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F6EE653F296D0A6A00516A47"
-               BuildableName = "JMSports.app"
+               BuildableName = "JMSportsDevelopment.app"
                BlueprintName = "JMSports"
                ReferencedContainer = "container:JMSports.xcodeproj">
             </BuildableReference>
@@ -50,6 +50,39 @@
                ReferencedContainer = "container:JMSports.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F6FE16F4296D21AC00AE2726"
+               BuildableName = "DataLayerTests.xctest"
+               BlueprintName = "DataLayerTests"
+               ReferencedContainer = "container:JMSports.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F6FE1721296D22A100AE2726"
+               BuildableName = "UILayerTests.xctest"
+               BlueprintName = "UILayerTests"
+               ReferencedContainer = "container:JMSports.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F6FE174B296D236800AE2726"
+               BuildableName = "DomainLayerTests.xctest"
+               BlueprintName = "DomainLayerTests"
+               ReferencedContainer = "container:JMSports.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -67,7 +100,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F6EE653F296D0A6A00516A47"
-            BuildableName = "JMSports.app"
+            BuildableName = "JMSportsDevelopment.app"
             BlueprintName = "JMSports"
             ReferencedContainer = "container:JMSports.xcodeproj">
          </BuildableReference>
@@ -84,7 +117,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F6EE653F296D0A6A00516A47"
-            BuildableName = "JMSports.app"
+            BuildableName = "JMSportsDevelopment.app"
             BlueprintName = "JMSports"
             ReferencedContainer = "container:JMSports.xcodeproj">
          </BuildableReference>
