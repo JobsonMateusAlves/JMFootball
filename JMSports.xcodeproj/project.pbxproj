@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F6EE6540296D0A6A00516A47 /* JMSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EE6540296D0A6A00516A47 /* JMSportsDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMSportsDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EE6543296D0A6A00516A47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6EE6545296D0A6A00516A47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F6EE6547296D0A6A00516A47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		F6EE6541296D0A6A00516A47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6EE6540296D0A6A00516A47 /* JMSports.app */,
+				F6EE6540296D0A6A00516A47 /* JMSportsDevelopment.app */,
 				F6EE6556296D0A6C00516A47 /* JMSportsTests.xctest */,
 				F6EE6560296D0A6C00516A47 /* JMSportsUITests.xctest */,
 			);
@@ -144,7 +144,7 @@
 			);
 			name = JMSports;
 			productName = JMSports;
-			productReference = F6EE6540296D0A6A00516A47 /* JMSports.app */;
+			productReference = F6EE6540296D0A6A00516A47 /* JMSportsDevelopment.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F6EE6555296D0A6C00516A47 /* JMSportsTests */ = {
@@ -450,8 +450,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,8 +478,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,8 +642,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)Staging";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -762,8 +762,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobson.JMSports.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)Staging";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
