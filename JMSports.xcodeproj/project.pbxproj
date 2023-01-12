@@ -16,6 +16,8 @@
 		F6EE655B296D0A6C00516A47 /* JMSportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE655A296D0A6C00516A47 /* JMSportsTests.swift */; };
 		F6EE6565296D0A6C00516A47 /* JMSportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE6564296D0A6C00516A47 /* JMSportsUITests.swift */; };
 		F6EE6567296D0A6C00516A47 /* JMSportsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE6566296D0A6C00516A47 /* JMSportsUITestsLaunchTests.swift */; };
+		F6F9E1FD296FC8B2005CD11A /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E1FB296FB8F1005CD11A /* SportTableViewCell.swift */; };
+		F6F9E1FE296FC8B6005CD11A /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E1F6296FB89C005CD11A /* SportsViewController.swift */; };
 		F6FE171D296D22A100AE2726 /* UILayer.docc in Sources */ = {isa = PBXBuildFile; fileRef = F6FE171C296D22A100AE2726 /* UILayer.docc */; };
 		F6FE1723296D22A100AE2726 /* UILayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FE1719296D22A100AE2726 /* UILayer.framework */; };
 		F6FE172A296D22A200AE2726 /* UILayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE1729296D22A200AE2726 /* UILayerTests.swift */; };
@@ -161,6 +163,8 @@
 		F6EE6560296D0A6C00516A47 /* JMSportsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMSportsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EE6564296D0A6C00516A47 /* JMSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMSportsUITests.swift; sourceTree = "<group>"; };
 		F6EE6566296D0A6C00516A47 /* JMSportsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMSportsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F6F9E1F6296FB89C005CD11A /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		F6F9E1FB296FB8F1005CD11A /* SportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		F6FE1719296D22A100AE2726 /* UILayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UILayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FE171B296D22A100AE2726 /* UILayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILayer.h; sourceTree = "<group>"; };
 		F6FE171C296D22A100AE2726 /* UILayer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = UILayer.docc; sourceTree = "<group>"; };
@@ -287,9 +291,10 @@
 		F6EE6542296D0A6A00516A47 /* JMSports */ = {
 			isa = PBXGroup;
 			children = (
+				F6F9E1FF296FC8D3005CD11A /* Core */,
+				F6EE6547296D0A6A00516A47 /* ViewController.swift */,
 				F6EE6543296D0A6A00516A47 /* AppDelegate.swift */,
 				F6EE6545296D0A6A00516A47 /* SceneDelegate.swift */,
-				F6EE6547296D0A6A00516A47 /* ViewController.swift */,
 				F6EE6549296D0A6A00516A47 /* Main.storyboard */,
 				F6EE654C296D0A6B00516A47 /* Assets.xcassets */,
 				F6EE654E296D0A6B00516A47 /* LaunchScreen.storyboard */,
@@ -315,9 +320,34 @@
 			path = JMSportsUITests;
 			sourceTree = "<group>";
 		};
+		F6F9E1F5296FB887005CD11A /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				F6F9E1F8296FB8AC005CD11A /* Cells */,
+				F6F9E1F6296FB89C005CD11A /* SportsViewController.swift */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		F6F9E1F8296FB8AC005CD11A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F6F9E1FB296FB8F1005CD11A /* SportTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F6F9E1FF296FC8D3005CD11A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		F6FE171A296D22A100AE2726 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				F6F9E1F5296FB887005CD11A /* Sports */,
 				F6FE171B296D22A100AE2726 /* UILayer.h */,
 				F6FE171C296D22A100AE2726 /* UILayer.docc */,
 			);
@@ -754,6 +784,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F9E1FE296FC8B6005CD11A /* SportsViewController.swift in Sources */,
+				F6F9E1FD296FC8B2005CD11A /* SportTableViewCell.swift in Sources */,
 				F6FE171D296D22A100AE2726 /* UILayer.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2116,6 +2148,7 @@
 		F6FE1738296D22A200AE2726 /* Development Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2187,6 +2220,7 @@
 		F6FE1739296D22A200AE2726 /* Staging Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2252,6 +2286,7 @@
 		F6FE173A296D22A200AE2726 /* Production Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2317,6 +2352,7 @@
 		F6FE173B296D22A200AE2726 /* Development Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2388,6 +2424,7 @@
 		F6FE173C296D22A200AE2726 /* Staging Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2453,6 +2490,7 @@
 		F6FE173D296D22A200AE2726 /* Production Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

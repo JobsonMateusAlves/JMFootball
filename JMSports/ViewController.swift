@@ -6,16 +6,20 @@
 //
 
 import UIKit
-import DataLayer
-import DomainLayer
+import UILayer
 
+// TODO: Improve
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let controller: UIViewController = SportsViewController()
+        let navigation: UINavigationController = UINavigationController(rootViewController: controller)
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation, animated: false)
+    }
 }
-

@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Sport: Codable {
-    let id: String
-    let name: String
-    let description: String
+    public let id: String
+    public let name: String
+    public let description: String
     
     enum CodingKeys: String, CodingKey {
         case id = "idSport"
@@ -18,9 +18,13 @@ public struct Sport: Codable {
         case description = "strSportDescription"
     }
     
-    public init() {
-        self.id = ""
-        self.name = ""
-        self.description = ""
+    public init(
+        id: String,
+        name: String,
+        description: String
+    ) {
+        self.id = id
+        self.name = name
+        self.description = description
     }
 }
