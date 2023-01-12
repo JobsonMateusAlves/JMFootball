@@ -8,7 +8,7 @@
 import Foundation
 import DomainLayer
 
-protocol SportsViewModelDelegate: class {
+protocol SportsViewModelDelegate: AnyObject {
     func sportsViewModel(_ viewModel: SportsViewModel, didUpdateSports sports: [Sport])
 }
 
