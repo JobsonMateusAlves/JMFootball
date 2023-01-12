@@ -9,59 +9,84 @@ import UIKit
 import DataLayer
 import DomainLayer
 
+// MARK: - SportsViewController
 public class SportsViewController: UIViewController {
     
+    // MARK: Properties
     let tableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-    var data: [Sport] = [
-        Sport(id: "1", name: "Futebol", description: "Futebol é um esporte onde 2 times de 11 jogadores se enfrentam chutando uma bola e tentando fazer gols."),
-        Sport(id: "2", name: "Basquete", description: "Basquete é um esporte legal."),
-        Sport(id: "3", name: "Volei", description: "Volei é um esporte muito legal.")
-    ]
+    private let viewModel: SportsViewModel
     
-    // TODO: Improve
+    // MARK: Inits
     public init() {
+        self.viewModel = SportsViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public init(viewModel: SportsViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
+        self.viewModel = SportsViewModel()
         super.init(coder: coder)
     }
     
+    // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Sports"
+        
         self.setupLayout()
         self.setupTableView()
-        self.title = "Sports"
+        self.setupViewModel()
+        self.loadData()
     }
     
+    func loadData() {
+        self.viewModel.fetchSports()
+    }
+    
+    // MARK: Setup
     func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(SportTableViewCell.self, forCellReuseIdentifier: "SportTableViewCell")
     }
+    
+    func setupViewModel() {
+        self.viewModel.delegate = self
+    }
 }
 
-// MARK: UITableViewDelegate And UITableViewDataSource
+// MARK: - ViewModelDelegate
+extension SportsViewController: SportsViewModelDelegate {
+    func sportsViewModel(_ viewModel: SportsViewModel, didUpdateSports sports: [DomainLayer.Sport]) {
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UITableViewDelegate And UITableViewDataSource
 extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        return self.viewModel.numberOfSports
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: SportTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SportTableViewCell", for: indexPath) as? SportTableViewCell else {
             return UITableViewCell()
         }
-        cell.bind(sport: self.data[indexPath.row])
+        cell.bind(sport: self.viewModel.sportAt(index: indexPath.row))
         return cell
     }
 }
 
-// MARK: Layout
+// MARK: - Layout
 extension SportsViewController {
     
     func setupLayout() {
