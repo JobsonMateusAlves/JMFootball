@@ -14,6 +14,7 @@ protocol SportsViewModelDelegate: AnyObject {
 
 public class SportsViewModel {
     weak var delegate: SportsViewModelDelegate?
+    private let sportUseCase: SportUseCaseProtocol
     
     private var sports: [Sport] = [] {
         didSet {
@@ -21,17 +22,22 @@ public class SportsViewModel {
         }
     }
     
-    public init() {}
+    public init() {
+        // TODO: Dependency injection
+        sportUseCase = SportUseCase(repository: SportRepository())
+    }
     
     func fetchSports() {
         // TODO: Add Requests
-        let sports: [Sport] = [
-            Sport(id: "1", name: "Futebol", description: "Futebol é um esporte onde 2 times de 11 jogadores se enfrentam chutando uma bola e tentando fazer gols."),
-            Sport(id: "2", name: "Basquete", description: "Basquete é um esporte legal."),
-            Sport(id: "3", name: "Volei", description: "Volei é um esporte muito legal.")
-        ]
-        
-        self.sports = sports
+        sportUseCase.fetchSports { [weak self] result in
+            switch result {
+            case .success(let sports):
+                self?.sports = sports
+            case .failure:
+                // TODO: Error handling
+                break
+            }
+        }
     }
 }
 

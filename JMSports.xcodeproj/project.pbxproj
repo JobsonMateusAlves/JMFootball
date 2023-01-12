@@ -19,6 +19,8 @@
 		F6F9E1FD296FC8B2005CD11A /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E1FB296FB8F1005CD11A /* SportTableViewCell.swift */; };
 		F6F9E1FE296FC8B6005CD11A /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E1F6296FB89C005CD11A /* SportsViewController.swift */; };
 		F6F9E203296FD1E4005CD11A /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E202296FD1E4005CD11A /* SportsViewModel.swift */; };
+		F6F9E20B296FDB17005CD11A /* SportRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E20A296FDB17005CD11A /* SportRepository.swift */; };
+		F6F9E20E296FDB42005CD11A /* SportUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F9E20D296FDB42005CD11A /* SportUseCase.swift */; };
 		F6FE171D296D22A100AE2726 /* UILayer.docc in Sources */ = {isa = PBXBuildFile; fileRef = F6FE171C296D22A100AE2726 /* UILayer.docc */; };
 		F6FE1723296D22A100AE2726 /* UILayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FE1719296D22A100AE2726 /* UILayer.framework */; };
 		F6FE172A296D22A200AE2726 /* UILayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE1729296D22A200AE2726 /* UILayerTests.swift */; };
@@ -167,6 +169,8 @@
 		F6F9E1F6296FB89C005CD11A /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
 		F6F9E1FB296FB8F1005CD11A /* SportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		F6F9E202296FD1E4005CD11A /* SportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewModel.swift; sourceTree = "<group>"; };
+		F6F9E20A296FDB17005CD11A /* SportRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportRepository.swift; sourceTree = "<group>"; };
+		F6F9E20D296FDB42005CD11A /* SportUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportUseCase.swift; sourceTree = "<group>"; };
 		F6FE1719296D22A100AE2726 /* UILayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UILayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FE171B296D22A100AE2726 /* UILayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILayer.h; sourceTree = "<group>"; };
 		F6FE171C296D22A100AE2726 /* UILayer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = UILayer.docc; sourceTree = "<group>"; };
@@ -347,6 +351,32 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		F6F9E204296FD9F4005CD11A /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				F6F9E20C296FDB36005CD11A /* UseCase */,
+				F6F9E209296FDAEE005CD11A /* Repository */,
+				F6FE1796296D240100AE2726 /* Models */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		F6F9E209296FDAEE005CD11A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F6F9E20A296FDB17005CD11A /* SportRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F6F9E20C296FDB36005CD11A /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F6F9E20D296FDB42005CD11A /* SportUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		F6FE171A296D22A100AE2726 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,8 +398,7 @@
 		F6FE1744296D236800AE2726 /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
-				F6FE179B296D24F100AE2726 /* Protocols */,
-				F6FE1796296D240100AE2726 /* Models */,
+				F6F9E204296FD9F4005CD11A /* Sports */,
 				F6FE1745296D236800AE2726 /* DomainLayer.h */,
 				F6FE1746296D236800AE2726 /* DomainLayer.docc */,
 			);
@@ -407,13 +436,6 @@
 				F6FE1797296D241500AE2726 /* Sport.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		F6FE179B296D24F100AE2726 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -806,6 +828,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F9E20B296FDB17005CD11A /* SportRepository.swift in Sources */,
+				F6F9E20E296FDB42005CD11A /* SportUseCase.swift in Sources */,
 				F6FE1798296D241500AE2726 /* Sport.swift in Sources */,
 				F6FE1747296D236800AE2726 /* DomainLayer.docc in Sources */,
 			);
