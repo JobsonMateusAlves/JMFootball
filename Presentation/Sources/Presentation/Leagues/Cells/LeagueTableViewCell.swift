@@ -1,5 +1,5 @@
 //
-//  SportTableViewCell.swift
+//  LeagueTableViewCell.swift
 //  Presentation
 //
 //  Created by Jobson Mateus on 12/01/23.
@@ -8,7 +8,7 @@
 import UIKit
 import Domain
 
-class SportTableViewCell: UITableViewCell {
+class LeagueTableViewCell: UITableViewCell {
     
     // MARK: Properties
     let nameLabel: UILabel = {
@@ -18,7 +18,7 @@ class SportTableViewCell: UITableViewCell {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    let countryLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -40,14 +40,14 @@ class SportTableViewCell: UITableViewCell {
         setupLayout()
     }
     
-    func bind(sport: Sport) {
-        nameLabel.text = sport.name
-        descriptionLabel.text = sport.description
+    func bind(league: League) {
+        nameLabel.text = "\(league.id) - \(league.name)"
+        countryLabel.text = league.country
     }
 }
 
 // MARK: Layout
-extension SportTableViewCell {
+extension LeagueTableViewCell {
     func setupLayout() {
         setupNameLabelLayout()
         setupDescriptionLabelLayout()
@@ -66,13 +66,13 @@ extension SportTableViewCell {
     }
     
     func setupDescriptionLabelLayout() {
-        addSubview(descriptionLabel)
+        addSubview(countryLabel)
         
         let constraints: [NSLayoutConstraint] = [
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16)
+            countryLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            countryLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            countryLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            countryLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16)
         ]
         
         NSLayoutConstraint.activate(constraints)

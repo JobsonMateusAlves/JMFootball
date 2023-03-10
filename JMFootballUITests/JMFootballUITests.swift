@@ -1,13 +1,13 @@
 //
-//  JMSportsUITests.swift
-//  JMSportsUITests
+//  JMFootballUITests.swift
+//  JMFootballUITests
 //
 //  Created by Jobson Mateus on 09/03/23.
 //
 
 import XCTest
 
-final class JMSportsUITests: XCTestCase {
+final class JMFootballUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

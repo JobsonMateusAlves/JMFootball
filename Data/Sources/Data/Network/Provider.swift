@@ -39,7 +39,7 @@ public class Provider<T: API> {
         request.httpMethod = target.method.rawValue
         request.httpBody = httpBody
         target.headers?.forEach{ key, value in
-            request.setValue(key, forHTTPHeaderField: value)
+            request.setValue(value, forHTTPHeaderField: key)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -60,7 +60,9 @@ public class Provider<T: API> {
             
             do {
                 let response = try JSONDecoder().decode(V.self, from: data)
-                completion?(.success(response))
+                DispatchQueue.main.async {
+                    completion?(.success(response))
+                }
             } catch {
                 completion?(.failure(APIError.invalidResponse))
             }

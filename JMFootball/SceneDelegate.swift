@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  JMSports
+//  JMFootball
 //
 //  Created by Jobson Mateus on 09/03/23.
 //
@@ -16,14 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let viewModel: SportsViewModel = SportsViewModel(
-                useCase: SportsUseCaseImpl(
-                    sportsRepository: SportsRepositoryImpl(
-                        provider: SportsProviderImpl()
+            let viewModel: LeaguesViewModel = LeaguesViewModel(
+                useCase: LeaguesUseCaseImpl(
+                    leaguesRepository: LeaguesRepositoryImpl(
+                        provider: LeaguesProviderImpl()
                     )
                 )
             )
-            window.rootViewController = UINavigationController(rootViewController: SportsViewController(viewModel: viewModel))
+            window.rootViewController = UINavigationController(rootViewController: LeaguesViewController(viewModel: viewModel))
             self.window = window
             window.makeKeyAndVisible()
         }

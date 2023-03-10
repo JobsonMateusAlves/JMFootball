@@ -1,5 +1,5 @@
 //
-//  SportsViewController.swift
+//  LeaguesViewController.swift
 //  Presentation
 //
 //  Created by Jobson Mateus on 12/01/23.
@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 import Domain
 
-// MARK: - SportsViewController
-public class SportsViewController: UIViewController {
+// MARK: - LeaguesViewController
+public class LeaguesViewController: UIViewController {
 
     // MARK: Properties
     let tableView: UITableView = {
@@ -19,10 +19,10 @@ public class SportsViewController: UIViewController {
         return tableView
     }()
 
-    private let viewModel: SportsViewModel!
+    private let viewModel: LeaguesViewModel!
 
     // MARK: Inits
-    public init(viewModel: SportsViewModel) {
+    public init(viewModel: LeaguesViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,7 +34,7 @@ public class SportsViewController: UIViewController {
     // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sports"
+        title = "Leagues"
 
         setupLayout()
         setupTableView()
@@ -42,7 +42,7 @@ public class SportsViewController: UIViewController {
     }
 
     func loadData() {
-        viewModel.fetchSports { [weak self] in
+        viewModel.fetchLeagues { [weak self] in
             self?.tableView.reloadData()
         }
     }
@@ -51,27 +51,27 @@ public class SportsViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(SportTableViewCell.self, forCellReuseIdentifier: "SportTableViewCell")
+        tableView.register(LeagueTableViewCell.self, forCellReuseIdentifier: "LeagueTableViewCell")
     }
 }
 
 // MARK: - UITableViewDelegate And UITableViewDataSource
-extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
+extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfSports
+        return viewModel.numberOfLeagues
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: SportTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SportTableViewCell", for: indexPath) as? SportTableViewCell else {
+        guard let cell: LeagueTableViewCell = tableView.dequeueReusableCell(withIdentifier: "LeagueTableViewCell", for: indexPath) as? LeagueTableViewCell else {
             return UITableViewCell()
         }
-        cell.bind(sport: viewModel.sportAt(index: indexPath.row))
+        cell.bind(league: viewModel.leagueAt(index: indexPath.row))
         return cell
     }
 }
 
 // MARK: - Layout
-extension SportsViewController {
+extension LeaguesViewController {
 
     func setupLayout() {
         setupTableViewLayout()

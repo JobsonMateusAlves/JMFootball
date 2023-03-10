@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JMSports
+//  JMFootball
 //
 //  Created by Jobson Mateus on 09/03/23.
 //

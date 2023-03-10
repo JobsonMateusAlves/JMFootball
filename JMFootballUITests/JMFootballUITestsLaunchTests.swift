@@ -1,13 +1,13 @@
 //
-//  JMSportsUITestsLaunchTests.swift
-//  JMSportsUITests
+//  JMFootballUITestsLaunchTests.swift
+//  JMFootballUITests
 //
 //  Created by Jobson Mateus on 09/03/23.
 //
 
 import XCTest
 
-final class JMSportsUITestsLaunchTests: XCTestCase {
+final class JMFootballUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
