@@ -9,12 +9,15 @@ import UIKit
 import Domain
 
 class SportTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
     let nameLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     let descriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +29,7 @@ class SportTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    // MARK: Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
