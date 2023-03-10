@@ -16,7 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let viewModel: SportsViewModel = SportsViewModel(useCase: SportsUseCaseImpl(sportsRepository: SportsRepositoryImpl()))
+            let viewModel: SportsViewModel = SportsViewModel(
+                useCase: SportsUseCaseImpl(
+                    sportsRepository: SportsRepositoryImpl(
+                        provider: SportsProviderImpl()
+                    )
+                )
+            )
             window.rootViewController = UINavigationController(rootViewController: SportsViewController(viewModel: viewModel))
             self.window = window
             window.makeKeyAndVisible()

@@ -8,10 +8,15 @@
 import Foundation
 import Domain
 
+// TODO: Add DB
 public final class SportsRepositoryImpl: Domain.SportsRepository {
-    public init() {}
+    let provider: SportsProvider
+    
+    public init(provider: SportsProvider) {
+        self.provider = provider
+    }
 
     public func fetchSports(completion: @escaping (Result<[Domain.Sport], Error>) -> Void) {
-        completion(.success([Sport(id: "1", name: "Soccer", description: "Soccer description")]))
+        provider.fetchSports(completion: completion)
     }
 }

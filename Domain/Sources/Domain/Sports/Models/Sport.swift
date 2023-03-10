@@ -12,6 +12,12 @@ public struct Sport: Codable {
     public let name: String
     public let description: String
     
+    enum CodingKeys: String, CodingKey {
+        case id = "idSport"
+        case name = "strSport"
+        case description = "strSportDescription"
+    }
+    
     public init(
         id: String,
         name: String,
