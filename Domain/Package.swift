@@ -17,7 +17,7 @@ let package = Package(
     targets: [
         .target(
             name: "Domain",
-            dependencies: []
+            dependencies: ["Core"]
         ),
         .testTarget(
             name: "DomainTests",
