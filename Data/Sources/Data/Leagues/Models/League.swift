@@ -12,6 +12,7 @@ public struct League: Codable {
     let id: Int
     let name: String
     let type: String
+    let logo: String
     let country: String
     let countryFlag: String?
     
@@ -21,6 +22,7 @@ public struct League: Codable {
         
         case id
         case name
+        case logo
         case type
         case flag
     }
@@ -33,6 +35,7 @@ public struct League: Codable {
         id = try leagueContainer.decode(Int.self, forKey: .id)
         name = try leagueContainer.decode(String.self, forKey: .name)
         type = try leagueContainer.decode(String.self, forKey: .type)
+        logo = try leagueContainer.decode(String.self, forKey: .logo)
         country = try countryContainer.decode(String.self, forKey: .name)
         countryFlag = try countryContainer.decodeIfPresent(String.self, forKey: .flag)
     }
@@ -42,6 +45,6 @@ public struct League: Codable {
 
 extension League {
     func asPresentationModel() -> Domain.League {
-        Domain.League(id: id, name: name, type: type, country: country, countryFlag: countryFlag)
+        Domain.League(id: id, name: name, type: type, logo: logo, country: country, countryFlag: countryFlag)
     }
 }
