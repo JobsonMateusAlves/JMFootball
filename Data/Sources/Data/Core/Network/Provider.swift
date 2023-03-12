@@ -31,7 +31,9 @@ public class Provider<T: API> {
         }
         
         guard let url: URL = components?.url else {
-            completion?(.failure(APIError.invalidURL))
+            DispatchQueue.main.async {
+                completion?(.failure(APIError.invalidURL))
+            }
             return
         }
         
@@ -44,17 +46,23 @@ public class Provider<T: API> {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let _ = error {
-                completion?(.failure(APIError.requestFailed))
+                DispatchQueue.main.async {
+                    completion?(.failure(APIError.requestFailed))
+                }
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, let data = data else {
-                completion?(.failure(APIError.invalidResponse))
+                DispatchQueue.main.async {
+                    completion?(.failure(APIError.invalidResponse))
+                }
                 return
             }
             
             guard (200...299).contains(httpResponse.statusCode) else {
-                completion?(.failure(APIError.requestFailed))
+                DispatchQueue.main.async {
+                    completion?(.failure(APIError.requestFailed))
+                }
                 return
             }
             
@@ -64,7 +72,9 @@ public class Provider<T: API> {
                     completion?(.success(response))
                 }
             } catch {
-                completion?(.failure(APIError.invalidResponse))
+                DispatchQueue.main.async {
+                    completion?(.failure(APIError.invalidResponse))
+                }
             }
         }
         .resume()

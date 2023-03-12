@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AppDatabase.swift
 //  
 //
 //  Created by Jobson Mateus on 11/03/23.
@@ -9,7 +9,9 @@ import Foundation
 import GRDB
 
 public final class AppDatabase {
-    static var shared: AppDatabase?
+    public static let shared: AppDatabase? = {
+        try? AppDatabase()
+    }()
     
     var dbQueue: DatabaseQueue
     var leagueDatabase: LeagueDatabase
@@ -22,8 +24,8 @@ public final class AppDatabase {
         debugPrint("DATABASE: \(url.path)")
     }
     
-    public static func initialize() {
-        shared = try? AppDatabase()
+    public func initialize() {
+        try? leagueDatabase.createTable()
     }
     
     private static func getDirectoryURL() throws -> URL {

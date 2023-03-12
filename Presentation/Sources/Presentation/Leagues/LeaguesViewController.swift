@@ -19,7 +19,7 @@ public class LeaguesViewController: UIViewController {
         return tableView
     }()
 
-    private let viewModel: LeaguesViewModel!
+    private let viewModel: LeaguesViewModel
 
     // MARK: Inits
     public init(viewModel: LeaguesViewModel) {
@@ -43,6 +43,13 @@ public class LeaguesViewController: UIViewController {
 
     func loadData() {
         viewModel.fetchLeagues { [weak self] in
+            if let error = self?.viewModel.error {
+                // TODO: Remove and improve error handling
+                let alert: UIAlertController = UIAlertController(title: "Atenção", message: error, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self?.present(alert, animated: true)
+                return
+            }
             self?.tableView.reloadData()
         }
     }
