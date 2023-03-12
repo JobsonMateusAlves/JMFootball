@@ -24,7 +24,8 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
             switch result {
             case .success(let response):
                 try? AppDatabase.shared?.leagueDatabase.insert(leagues: response.leagues)
-                completion(.success(response.leagues.map({ $0.asPresentationModel() })))
+                let leagues: [League] = (try? AppDatabase.shared?.leagueDatabase.getAll()) ?? []
+                completion(.success(leagues.map({ $0.asPresentationModel() })))
             case .failure(let error):
                 completion(.failure(error))
             }

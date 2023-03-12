@@ -10,14 +10,7 @@ import Presentation
 import Domain
 import Data
 
-protocol LeagueFactory {
-    static func createViewModel() -> LeaguesViewModel
-    static func createUseCase() -> LeaguesUseCase
-    static func createRepository() -> LeaguesRepository
-    static func createProvider() -> LeaguesProvider
-}
-
-final class LeaguesFactoryImpl: LeagueFactory {
+final class LeaguesFactory {
     static func createViewModel() -> LeaguesViewModel {
         LeaguesViewModelImpl(useCase: createUseCase())
     }
