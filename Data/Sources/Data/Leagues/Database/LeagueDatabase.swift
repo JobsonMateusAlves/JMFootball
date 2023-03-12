@@ -33,7 +33,6 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
     
     init(dbQueue: DatabaseQueue) {
         self.dbQueue = dbQueue
-        try? createTable()
     }
     
     func createTable() throws  {

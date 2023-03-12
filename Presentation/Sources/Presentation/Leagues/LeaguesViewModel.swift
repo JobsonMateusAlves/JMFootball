@@ -12,6 +12,7 @@ public class LeaguesViewModel {
     private let useCase: LeaguesUseCase
 
     private var leagues: [League] = []
+    var fetchLeaguesError: String?
 
     public init(useCase: LeaguesUseCase) {
         self.useCase = useCase
@@ -24,9 +25,9 @@ public class LeaguesViewModel {
                 self?.leagues = leagues
                 completion()
                 
-            case .failure:
-                // TODO: Error handling
-                break
+            case .failure(let error):
+                self?.fetchLeaguesError = error.localizedDescription
+                completion()
             }
         }
     }
@@ -35,6 +36,10 @@ public class LeaguesViewModel {
 extension LeaguesViewModel {
     var numberOfLeagues: Int {
         leagues.count
+    }
+    
+    var error: String? {
+        fetchLeaguesError
     }
 
     func leagueAt(index: Int) -> League {
