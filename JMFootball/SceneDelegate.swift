@@ -12,13 +12,18 @@ import Presentation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var coordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: LeaguesViewController(viewModel: LeaguesFactoryImpl.createViewModel()))
+            let navigationController = UINavigationController()
+            coordinator = MainCoordinator(navigationController: navigationController)
+            coordinator?.start()
+            window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()
+            print("STARTED")
         }
     }
     
