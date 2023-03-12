@@ -15,17 +15,20 @@ public final class AppDatabase {
     
     var dbQueue: DatabaseQueue
     var leagueDatabase: LeagueDatabase
+    var countryDatabase: CountryDatabase
     
     private init() throws {
         let url = try AppDatabase.getDirectoryURL()
         dbQueue = try DatabaseQueue(path: url.path)
         leagueDatabase = LeagueDatabaseImpl(dbQueue: dbQueue)
+        countryDatabase = CountryDatabaseImpl(dbQueue: dbQueue)
         
         debugPrint("DATABASE: \(url.path)")
     }
     
     public func initialize() {
         try? leagueDatabase.createTable()
+        try? countryDatabase.createTable()
     }
     
     private static func getDirectoryURL() throws -> URL {

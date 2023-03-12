@@ -24,7 +24,7 @@ public final class LeaguesUseCaseImpl: LeaguesUseCase {
         leaguesRepository.fetchLeagues { result in
             switch result {
             case .success(let response):
-                let leagues = response.filter({ $0.country.lowercased() != "world" }).sorted(by: { $0.id < $1.id })
+                let leagues = response.sorted(by: { $0.id < $1.id })
                 completion(.success(leagues))
             case .failure(let error):
                 completion(.failure(error))

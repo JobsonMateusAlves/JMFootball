@@ -8,7 +8,8 @@
 import Foundation
 import GRDB
 
-protocol LeagueDatabase: Database {
+protocol LeagueDatabase {
+    func createTable() throws
     func insert(league: League) throws
     func insert(leagues: [League]) throws
     func get(by id: Int) throws -> League?
@@ -22,14 +23,24 @@ extension League: PersistableRecord, FetchableRecord, TableRecord {
         self.name = row["name"]
         self.type = row["type"]
         self.logo = row["logo"]
-        self.country = row["country"]
-        self.countryFlag = row["countryFlag"]
+        if let countryRow = row.scopes["country"] {
+            self.country = Country(row: countryRow)
+        } else {
+            self.country = Country(name: "Erro", code: nil, flag: nil)
+        }
     }
 }
 
 public final class LeagueDatabaseImpl: LeagueDatabase {
-    
     let dbQueue: DatabaseQueue
+    
+    private let countryAssociation: HasOneAssociation<League, Country> = League.hasOne(
+        Country.self,
+        using: ForeignKey(
+            ["name"],
+            to: ["countryName"]
+        )
+    )
     
     init(dbQueue: DatabaseQueue) {
         self.dbQueue = dbQueue
@@ -45,39 +56,16 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
                 t.column("name", .text).notNull()
                 t.column("type", .text).notNull()
                 t.column("logo", .text).notNull()
-                t.column("country", .text)
-                t.column("countryFlag", .text)
+                t.column("countryName", .text).notNull()
                 t.primaryKey(["id"], onConflict: .replace)
             }
         }
     }
     
     func insert(league: League) throws {
-        try dbQueue.write { db in
-            let statement: Statement = try db.makeStatement(
-                literal: """
-                    INSERT OR REPLACE INTO league (
-                       \(Column("id")),
-                       \(Column("name")),
-                       \(Column("type")),
-                       \(Column("logo")),
-                       \(Column("country")),
-                       \(Column("countryFlag"))
-                    )
-                    VALUES (?, ?, ?, ?, ?, ?)
-                """
-            )
-            
-            try statement.setArguments([
-                league.id,
-                league.name,
-                league.type,
-                league.logo,
-                league.country,
-                league.countryFlag
-            ])
-            
-            try statement.execute()
+        try dbQueue.write{ db in
+            try league.insert(in: db)
+            try league.country.insert(db)
         }
     }
     
@@ -89,22 +77,15 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
     
     func get(by id: Int) throws -> League? {
         try dbQueue.read { db in
-            let sql: String = """
-                SELECT *
-                FROM league
-                WHERE id = \(id)
-            """
-            return try League.fetchOne(db, sql: sql)
+            let statement: QueryInterfaceRequest<League> = League.filter(key: id).including(required: countryAssociation)
+            return try statement.fetchOne(db)
         }
     }
     
     func getAll() throws -> [League] {
         try dbQueue.read { db in
-            let sql: String = """
-                SELECT *
-                FROM league
-            """
-            return try League.fetchAll(db, sql: sql)
+            let statement: QueryInterfaceRequest<League> = League.including(required: countryAssociation)
+            return try statement.fetchAll(db)
         }
     }
     

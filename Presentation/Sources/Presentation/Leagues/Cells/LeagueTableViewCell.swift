@@ -49,7 +49,7 @@ class LeagueTableViewCell: UITableViewCell {
     
     func bind(league: League) {
         nameLabel.text = "\(league.id) - \(league.name)"
-        countryLabel.text = league.country
+        countryLabel.text = league.country.name
         if let url = URL(string: league.logo) {
             logoImageView.setImage(with: url)
         }
