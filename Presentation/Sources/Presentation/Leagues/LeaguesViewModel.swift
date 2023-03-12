@@ -8,17 +8,24 @@
 import Foundation
 import Domain
 
-public class LeaguesViewModel {
+public protocol LeaguesViewModel {
+    var numberOfLeagues: Int { get }
+    var error: String? { get }
+    func fetchLeagues(completion: @escaping (() -> Void))
+    func leagueAt(index: Int) -> League
+}
+
+public class LeaguesViewModelImpl: LeaguesViewModel {
     private let useCase: LeaguesUseCase
 
     private var leagues: [League] = []
-    var fetchLeaguesError: String?
+    private var fetchLeaguesError: String?
 
     public init(useCase: LeaguesUseCase) {
         self.useCase = useCase
     }
 
-    func fetchLeagues(completion: @escaping (() -> Void)) {
+    public func fetchLeagues(completion: @escaping (() -> Void)) {
         useCase.fetchLeagues { [weak self] result in
             switch result {
             case .success(let leagues):
@@ -33,16 +40,16 @@ public class LeaguesViewModel {
     }
 }
 
-extension LeaguesViewModel {
-    var numberOfLeagues: Int {
+extension LeaguesViewModelImpl {
+    public var numberOfLeagues: Int {
         leagues.count
     }
     
-    var error: String? {
+    public var error: String? {
         fetchLeaguesError
     }
 
-    func leagueAt(index: Int) -> League {
+    public func leagueAt(index: Int) -> League {
         leagues[index]
     }
 }

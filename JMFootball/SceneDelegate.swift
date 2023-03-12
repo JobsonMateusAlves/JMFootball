@@ -16,14 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let viewModel: LeaguesViewModel = LeaguesViewModel(
-                useCase: LeaguesUseCaseImpl(
-                    leaguesRepository: LeaguesRepositoryImpl(
-                        provider: LeaguesProviderImpl()
-                    )
-                )
-            )
-            window.rootViewController = UINavigationController(rootViewController: LeaguesViewController(viewModel: viewModel))
+            window.rootViewController = UINavigationController(rootViewController: LeaguesViewController(viewModel: LeaguesFactoryImpl.createViewModel()))
             self.window = window
             window.makeKeyAndVisible()
         }

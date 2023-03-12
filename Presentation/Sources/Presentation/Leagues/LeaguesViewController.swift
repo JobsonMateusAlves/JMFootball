@@ -19,7 +19,7 @@ public class LeaguesViewController: UIViewController {
         return tableView
     }()
 
-    private let viewModel: LeaguesViewModel!
+    private let viewModel: LeaguesViewModel
 
     // MARK: Inits
     public init(viewModel: LeaguesViewModel) {
