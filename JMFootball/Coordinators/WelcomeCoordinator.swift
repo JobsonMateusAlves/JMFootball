@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  WelcomeCoordinator.swift
 //  JMFootball
 //
 //  Created by Jobson Mateus on 12/03/23.
@@ -9,7 +9,8 @@ import UIKit
 import Core
 import Presentation
 
-class MainCoordinator: Coordinator {
+class WelcomeCoordinator: Coordinator, Welcome {
+    
     var finish: (() -> Void)?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -19,22 +20,12 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        if UserDefaults.alreadySetPreferences() {
-            startLeaguesFlow()
-            return
-        }
-        startWelcomeFlow()
-    }
-    
-    private func startLeaguesFlow() {
-        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
+        let viewController = WelcomeViewController(coordinator: self)
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    private func startWelcomeFlow() {
-        let coordinator = WelcomeCoordinator(navigationController: navigationController)
-        childCoordinators.append(coordinator)
-        coordinator.start()
+    func startPreferencesFlow() {
+        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
+        navigationController.pushViewController(viewController, animated: false)
     }
 }
-

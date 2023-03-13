@@ -11,7 +11,7 @@ import GRDB
 protocol CountryDatabase {
     func createTable() throws
     func insert(country: Country) throws
-    func insert(countrys: [Country]) throws
+    func insert(countries: [Country]) throws
     func get(by name: Int) throws -> Country?
     func getAll() throws -> [Country]
     func deleteAll() throws
@@ -53,8 +53,8 @@ public final class CountryDatabaseImpl: CountryDatabase {
         }
     }
     
-    func insert(countrys: [Country]) throws {
-        try countrys.forEach { country in
+    func insert(countries: [Country]) throws {
+        try countries.forEach { country in
             try insert(country: country)
         }
     }

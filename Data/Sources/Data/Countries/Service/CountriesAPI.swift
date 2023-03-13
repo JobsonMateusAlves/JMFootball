@@ -1,28 +1,28 @@
 //
-//  LeaguesAPI.swift
+//  CountriesAPI.swift
 //  
 //
-//  Created by Jobson Mateus on 10/03/23.
+//  Created by Jobson Mateus on 12/03/23.
 //
 
 import Foundation
 
-public enum LeaguesAPI {
-    case fetchLeagues
+public enum CountriesAPI {
+    case fetchCountries
 }
 
-extension LeaguesAPI: API {
+extension CountriesAPI: API {
     public var baseURL: String {
         "https://v3.football.api-sports.io"
     }
     
     public var path: String {
-        "/leagues"
+        "/countries"
     }
     
     public var method: HTTPMethod {
         switch self {
-        case .fetchLeagues:
+        case .fetchCountries:
             return .GET
         }
     }

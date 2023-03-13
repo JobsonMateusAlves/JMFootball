@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import Foundation
 import Domain
 
+// TODO: Improve Layout
 // MARK: - LeaguesViewController
 public class LeaguesViewController: UIViewController {
 
     // MARK: Properties
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
