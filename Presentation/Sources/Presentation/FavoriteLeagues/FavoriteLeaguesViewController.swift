@@ -10,7 +10,7 @@ import Domain
 import Core
 
 public protocol FavoriteLeagues {
-//    func startFavoritesFlow()
+    func startAddFavoriteLeagues()
 }
 
 public class FavoriteLeaguesViewController: UIViewController {
@@ -56,12 +56,18 @@ public class FavoriteLeaguesViewController: UIViewController {
         super.viewDidLoad()
         title = "Favorite Leagues"
         
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = false
         
         setupLayout()
         setupCollectionView()
         
         loadData()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupCollectionView() {
@@ -98,7 +104,7 @@ extension FavoriteLeaguesViewController: UICollectionViewDelegate, UICollectionV
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == viewModel.numberOfLeagues {
-            print("Add")
+            coordinator.startAddFavoriteLeagues()
         }
     }
 }
@@ -145,7 +151,7 @@ extension FavoriteLeaguesViewController {
     func setupLayout() {
         setupHeaderLayout()
         setupCollectionViewLayout()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hex: "#163A70")
     }
     
     func setupHeaderLayout() {

@@ -23,6 +23,7 @@
 		F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */; };
 		F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */; };
 		F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */; };
+		F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeguesCoordinator.swift; sourceTree = "<group>"; };
 		F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguesFactory.swift; sourceTree = "<group>"; };
+		F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */,
 				F6D7F0F629BDACB800F82DF0 /* MainCoordinator.swift */,
 				F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */,
+				F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */,
 				F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */,
 				F6D7F0F729BDACB800F82DF0 /* MainCoordinator.swift in Sources */,
+				F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */,
 				F6CCEC9629B99BD600893CD3 /* SceneDelegate.swift in Sources */,
 				F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */,
 			);
@@ -495,7 +499,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -525,7 +529,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

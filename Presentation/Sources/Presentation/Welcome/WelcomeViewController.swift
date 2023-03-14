@@ -46,6 +46,10 @@ public class WelcomeViewController: UIViewController {
         return button
     }()
 
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     let coordinator: (Coordinator & Welcome)
     
     // MARK: Inits
