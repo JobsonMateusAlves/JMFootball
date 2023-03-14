@@ -74,8 +74,8 @@ extension AddItemCollectionViewCell {
         let constraints: [NSLayoutConstraint] = [
             externalBackgroundCircleView.topAnchor.constraint(equalTo: topAnchor),
             externalBackgroundCircleView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            externalBackgroundCircleView.heightAnchor.constraint(equalToConstant: frame.width),
-            externalBackgroundCircleView.widthAnchor.constraint(equalToConstant: frame.width)
+            externalBackgroundCircleView.heightAnchor.constraint(equalToConstant: frame.width - 16),
+            externalBackgroundCircleView.widthAnchor.constraint(equalToConstant: frame.width - 16)
         ]
         
         NSLayoutConstraint.activate(constraints)

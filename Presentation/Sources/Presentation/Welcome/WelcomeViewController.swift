@@ -23,6 +23,7 @@ public class WelcomeViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "welcome-background")
         imageView.alpha = 0.6
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
