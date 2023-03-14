@@ -20,7 +20,8 @@ public protocol API {
     var url: String { get }
 
     var method: HTTPMethod { get }
-    var parameters: [String: String?]? { get }
+    var parameters: [String: Any]? { get }
+    var body: Data? { get }
     var headers: [String: String]? { get }
 }
 

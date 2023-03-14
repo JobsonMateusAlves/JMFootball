@@ -9,6 +9,7 @@ import Foundation
 
 public enum LeaguesAPI {
     case fetchLeagues
+    case fetchLeaguesBy(country: String)
 }
 
 extension LeaguesAPI: API {
@@ -22,16 +23,25 @@ extension LeaguesAPI: API {
     
     public var method: HTTPMethod {
         switch self {
-        case .fetchLeagues:
+        case .fetchLeagues, .fetchLeaguesBy:
             return .GET
         }
     }
     
-    public var parameters: [String : String?]? {
-        nil
+    public var parameters: [String : Any]? {
+        switch self {
+        case .fetchLeagues:
+            return nil
+        case .fetchLeaguesBy(let country):
+            return ["country": country]
+        }
     }
     
     public var headers: [String : String]? {
         ["x-apisports-key": apiKey]
+    }
+    
+    public var body: Data? {
+        nil
     }
 }

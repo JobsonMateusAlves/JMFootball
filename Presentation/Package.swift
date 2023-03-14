@@ -14,6 +14,7 @@ let package = Package(
     dependencies: [
         .package(name: "Core", path: "../Core"),
         .package(name: "Domain", path: "../Domain"),
+//        .package(url: "https://github.com/mischa-hildebrand/AlignedCollectionViewFlowLayout.git", from: "1.1.2")
     ],
     targets: [
         .target(

@@ -19,7 +19,7 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        if UserDefaults.alreadySetPreferences() {
+        if UserDefaults.alreadySetFavorites() {
             startLeaguesFlow()
             return
         }

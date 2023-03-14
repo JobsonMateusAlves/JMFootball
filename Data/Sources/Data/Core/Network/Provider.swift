@@ -16,18 +16,9 @@ public class Provider<T: API> {
         responseType: V.Type,
         completion: ((Result<V, Error>) -> Void)?
     ) {
-        var httpBody: Data?
         var components: URLComponents? = URLComponents(string: target.url)
-        
-        if let parameters = target.parameters {
-            switch target.method {
-            case .POST:
-                httpBody = try? JSONSerialization.data(withJSONObject: parameters)
-            default:
-                components?.queryItems = parameters.map { key, value in
-                    URLQueryItem(name: key, value: value)
-                }
-            }
+        components?.queryItems = target.parameters?.map { key, value in
+            URLQueryItem(name: key, value: String(describing: value))
         }
         
         guard let url: URL = components?.url else {
@@ -39,7 +30,7 @@ public class Provider<T: API> {
         
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = target.method.rawValue
-        request.httpBody = httpBody
+        request.httpBody = target.body
         target.headers?.forEach{ key, value in
             request.setValue(value, forHTTPHeaderField: key)
         }

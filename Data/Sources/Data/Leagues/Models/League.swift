@@ -15,6 +15,7 @@ public struct League: Codable {
     let type: String
     let logo: String
     let country: Country
+    var favorite: Bool = false
     
     enum CodingKeys: CodingKey {
         case league
@@ -37,6 +38,22 @@ public struct League: Codable {
         country = try container.decode(Country.self, forKey: .country)
     }
     
+    init(
+        id: Int,
+        name: String,
+        type: String,
+        logo: String,
+        country: Country,
+        favorite: Bool
+    ) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.logo = logo
+        self.country = country
+        self.favorite = favorite
+    }
+    
     public func encode(to encoder: Encoder) throws {}
 }
 
@@ -45,13 +62,14 @@ extension League {
         let statement: Statement = try db.makeStatement(
             literal: """
                 INSERT OR REPLACE INTO league (
-                   \(Column("id")),
-                   \(Column("name")),
-                   \(Column("type")),
-                   \(Column("logo")),
-                   \(Column("countryName"))
+                    \(Column("id")),
+                    \(Column("name")),
+                    \(Column("type")),
+                    \(Column("logo")),
+                    \(Column("countryName")),
+                    \(Column("favorite"))
                 )
-                VALUES (?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?)
             """
         )
         
@@ -61,6 +79,7 @@ extension League {
             type,
             logo,
             country.name,
+            favorite
         ])
         
         try statement.execute()
@@ -69,6 +88,6 @@ extension League {
 
 extension League {
     func asPresentationModel() -> Domain.League {
-        Domain.League(id: id, name: name, type: type, logo: logo, country: country.asPresentationModel())
+        Domain.League(id: id, name: name, type: type, logo: logo, country: country.asPresentationModel(), favorite: favorite)
     }
 }

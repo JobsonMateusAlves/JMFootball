@@ -27,11 +27,15 @@ extension CountriesAPI: API {
         }
     }
     
-    public var parameters: [String : String?]? {
+    public var parameters: [String : Any]? {
         nil
     }
     
     public var headers: [String : String]? {
         ["x-apisports-key": apiKey]
+    }
+    
+    public var body: Data? {
+        nil
     }
 }

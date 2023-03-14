@@ -10,7 +10,6 @@ import Core
 import Presentation
 
 class WelcomeCoordinator: Coordinator, Welcome {
-    
     var finish: (() -> Void)?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -24,8 +23,9 @@ class WelcomeCoordinator: Coordinator, Welcome {
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    func startPreferencesFlow() {
-        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
-        navigationController.pushViewController(viewController, animated: false)
+    func startFavoritesFlow() {
+        let coordinator = FavoriteLeguesCoordinator(navigationController: navigationController)
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }

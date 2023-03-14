@@ -13,6 +13,7 @@ protocol LeagueDatabase {
     func insert(league: League) throws
     func insert(leagues: [League]) throws
     func get(by id: Int) throws -> League?
+    func get(by country: Country) throws -> [League]
     func getAll() throws -> [League]
     func deleteAll() throws
 }
@@ -28,6 +29,7 @@ extension League: PersistableRecord, FetchableRecord, TableRecord {
         } else {
             self.country = Country(name: "Erro", code: nil, flag: nil)
         }
+        self.favorite = row["favorite"]
     }
 }
 
@@ -57,6 +59,7 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
                 t.column("type", .text).notNull()
                 t.column("logo", .text).notNull()
                 t.column("countryName", .text).notNull()
+                t.column("favorite", .boolean).notNull()
                 t.primaryKey(["id"], onConflict: .replace)
             }
         }
@@ -79,6 +82,13 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
         try dbQueue.read { db in
             let statement: QueryInterfaceRequest<League> = League.filter(key: id).including(required: countryAssociation)
             return try statement.fetchOne(db)
+        }
+    }
+    
+    func get(by country: Country) throws -> [League] {
+        try dbQueue.read { db in
+            let statement: QueryInterfaceRequest<League> = League.filter(key: country.name).including(required: countryAssociation)
+            return try statement.fetchAll(db)
         }
     }
     

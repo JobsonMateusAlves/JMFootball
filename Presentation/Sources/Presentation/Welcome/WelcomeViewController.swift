@@ -12,7 +12,7 @@ import Core
 // TODO: Improve Layout
 // MARK: - LeaguesViewController
 public protocol Welcome {
-    func startPreferencesFlow()
+    func startFavoritesFlow()
 }
 
 public class WelcomeViewController: UIViewController {
@@ -73,7 +73,7 @@ public class WelcomeViewController: UIViewController {
     }
     
     @objc func start() {
-        coordinator.start()
+        coordinator.startFavoritesFlow()
     }
 }
 

@@ -19,7 +19,7 @@ extension Country {
     func insert(in db: Database) throws {
         let statement: Statement = try db.makeStatement(
             literal: """
-                INSERT INTO country (
+                INSERT OR IGNORE INTO country (
                    \(Column("name")),
                    \(Column("code")),
                    \(Column("flag"))
@@ -39,6 +39,12 @@ extension Country {
 }
 
 extension Country {
+    init(from presentationModel: Domain.Country) {
+        self.name = presentationModel.name
+        self.code = presentationModel.code
+        self.flag = presentationModel.flag
+    }
+    
     func asPresentationModel() -> Domain.Country {
         Domain.Country(name: name, code: code, flag: flag)
     }
