@@ -54,7 +54,7 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
     
     public func fetchFavoriteLeagues(completion: @escaping (Result<[Domain.League], Error>) -> Void) {
         let savedLeagues = (try? AppDatabase.shared?.leagueDatabase.getAll()) ?? []
-        let favoritedLeagues = savedLeagues//.filter({ $0.favorite })
+        let favoritedLeagues = savedLeagues.filter({ $0.favorite })
         completion(.success(favoritedLeagues.map({ $0.asPresentationModel() })))
     }
 }
