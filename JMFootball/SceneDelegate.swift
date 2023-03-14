@@ -22,8 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navigationController = UINavigationController()
             UINavigationBar.appearance().backgroundColor = UIColor(hex: "#163A70")
             UINavigationBar.appearance().barStyle = .black
-            UINavigationBar.appearance().barTintColor = .green
-            UINavigationBar.appearance().tintColor = .magenta
+            UINavigationBar.appearance().tintColor = .white
             
             coordinator = MainCoordinator(navigationController: navigationController)
             coordinator?.start()

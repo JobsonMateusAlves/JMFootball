@@ -33,7 +33,7 @@ public class FavoriteLeaguesViewController: UIViewController {
         let view = HeaderView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(hex: "#151515")
-        view.bind(title: "Favorites")
+        view.bind(title: "Favorite Leagues")
         return view
     }()
 
@@ -54,7 +54,7 @@ public class FavoriteLeaguesViewController: UIViewController {
     // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorite Leagues"
+        title = ""
         
 //        navigationController?.isNavigationBarHidden = false
         

@@ -65,7 +65,6 @@ public class WelcomeViewController: UIViewController {
     // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Leagues"
 
         navigationController?.isNavigationBarHidden = true
         setup()

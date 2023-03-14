@@ -15,6 +15,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -22,12 +23,14 @@ class LeagueCollectionViewCell: UICollectionViewCell {
         let view: UIView = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     let externalBackgroundCircleView: UIView = {
         let view: UIView = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -38,6 +41,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 12)
         label.textColor = UIColor(hex: "#848484")
         label.numberOfLines = 0
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -54,6 +58,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupLayout()
+        isUserInteractionEnabled = true
     }
     
     func bind(league: League) {
