@@ -21,7 +21,7 @@ class HeaderView: UIView {
     let separatorView: UIView = {
         let view: UIView = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(hex: "#222222")
+        view.backgroundColor = .separatorColor
         return view
     }()
     

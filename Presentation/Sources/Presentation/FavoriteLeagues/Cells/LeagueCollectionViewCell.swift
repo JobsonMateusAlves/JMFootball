@@ -39,7 +39,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 12)
-        label.textColor = UIColor(hex: "#848484")
+        label.textColor = .secondaryTextColor
         label.numberOfLines = 0
         label.isUserInteractionEnabled = true
         return label
@@ -113,7 +113,7 @@ extension LeagueCollectionViewCell {
             backgroundCircleView.bottomAnchor.constraint(equalTo: externalBackgroundCircleView.bottomAnchor, constant: -16)
         ]
         
-        backgroundCircleView.backgroundColor = UIColor(hex: "#DFDFDF")
+        backgroundCircleView.backgroundColor = .terciaryBackgroundColor
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -149,7 +149,7 @@ extension LeagueCollectionViewCell {
         
         externalBackgroundCircleView.layer.cornerRadius = externalBackgroundCircleView.frame.width / 2
         externalBackgroundCircleView.layer.borderWidth = 2
-        externalBackgroundCircleView.layer.borderColor = UIColor(hex: "#333333").withAlphaComponent(0.6).cgColor
+        externalBackgroundCircleView.layer.borderColor = UIColor.primaryBorderColor.withAlphaComponent(0.6).cgColor
         
         backgroundCircleView.layer.cornerRadius = backgroundCircleView.frame.width / 2
     }
