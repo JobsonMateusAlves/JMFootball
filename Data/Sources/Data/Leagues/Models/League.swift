@@ -7,14 +7,15 @@
 
 import Foundation
 import Domain
+import GRDB
 
 public struct League: Codable {
     let id: Int
     let name: String
     let type: String
     let logo: String
-    let country: String
-    let countryFlag: String?
+    let country: Country
+    var favorite: Bool = false
     
     enum CodingKeys: CodingKey {
         case league
@@ -24,27 +25,69 @@ public struct League: Codable {
         case name
         case logo
         case type
-        case flag
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let leagueContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .league)
-        let countryContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .country)
 
         id = try leagueContainer.decode(Int.self, forKey: .id)
         name = try leagueContainer.decode(String.self, forKey: .name)
         type = try leagueContainer.decode(String.self, forKey: .type)
         logo = try leagueContainer.decode(String.self, forKey: .logo)
-        country = try countryContainer.decode(String.self, forKey: .name)
-        countryFlag = try countryContainer.decodeIfPresent(String.self, forKey: .flag)
+        country = try container.decode(Country.self, forKey: .country)
+    }
+    
+    init(
+        id: Int,
+        name: String,
+        type: String,
+        logo: String,
+        country: Country,
+        favorite: Bool
+    ) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.logo = logo
+        self.country = country
+        self.favorite = favorite
     }
     
     public func encode(to encoder: Encoder) throws {}
 }
 
 extension League {
+    func insert(in db: Database) throws {
+        let statement: Statement = try db.makeStatement(
+            literal: """
+                INSERT OR REPLACE INTO league (
+                    \(Column("id")),
+                    \(Column("name")),
+                    \(Column("type")),
+                    \(Column("logo")),
+                    \(Column("countryName")),
+                    \(Column("favorite"))
+                )
+                VALUES (?, ?, ?, ?, ?, ?)
+            """
+        )
+        
+        try statement.setArguments([
+            id,
+            name,
+            type,
+            logo,
+            country.name,
+            favorite
+        ])
+        
+        try statement.execute()
+    }
+}
+
+extension League {
     func asPresentationModel() -> Domain.League {
-        Domain.League(id: id, name: name, type: type, logo: logo, country: country, countryFlag: countryFlag)
+        Domain.League(id: id, name: name, type: type, logo: logo, country: country.asPresentationModel(), favorite: favorite)
     }
 }

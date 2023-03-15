@@ -12,22 +12,22 @@ public struct League {
     public let name: String
     public let type: String
     public let logo: String
-    public let country: String
-    public let countryFlag: String?
+    public let country: Country
+    public let favorite: Bool
     
     public init(
         id: Int,
         name: String,
         type: String,
         logo: String,
-        country: String,
-        countryFlag: String?
+        country: Country,
+        favorite: Bool
     ) {
         self.id = id
         self.name = name
         self.type = type
         self.logo = logo
         self.country = country
-        self.countryFlag = countryFlag
+        self.favorite = favorite
     }
 }

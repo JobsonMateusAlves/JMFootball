@@ -19,8 +19,12 @@
 		F6CCECCB29B9A0FD00893CD3 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = F6CCECCA29B9A0FD00893CD3 /* Data */; };
 		F6CCECCD29B9A0FD00893CD3 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = F6CCECCC29B9A0FD00893CD3 /* Domain */; };
 		F6CCECCF29B9A0FD00893CD3 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = F6CCECCE29B9A0FD00893CD3 /* Presentation */; };
-		F6D7F0F529BDAC9B00F82DF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0F429BDAC9B00F82DF0 /* Coordinator.swift */; };
 		F6D7F0F729BDACB800F82DF0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0F629BDACB800F82DF0 /* MainCoordinator.swift */; };
+		F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */; };
+		F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */; };
+		F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */; };
+		F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */; };
+		F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +61,12 @@
 		F6CCECC429B99E2E00893CD3 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		F6CCECC529B99EDF00893CD3 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		F6CCECC629B99F0100893CD3 /* Presentation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Presentation; sourceTree = "<group>"; };
-		F6D7F0F429BDAC9B00F82DF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F6D7F0F629BDACB800F82DF0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeguesCoordinator.swift; sourceTree = "<group>"; };
+		F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguesFactory.swift; sourceTree = "<group>"; };
+		F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCoordinator.swift; sourceTree = "<group>"; };
+		F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				F64152D429BDA51D00B4439D /* LeaguesFactory.swift */,
+				F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */,
+				F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -164,8 +174,10 @@
 		F6D7F0F329BDAC8E00F82DF0 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				F6D7F0F429BDAC9B00F82DF0 /* Coordinator.swift */,
+				F6D7F0FA29BEA28D00F82DF0 /* WelcomeCoordinator.swift */,
 				F6D7F0F629BDACB800F82DF0 /* MainCoordinator.swift */,
+				F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */,
+				F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -308,11 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D7F0F529BDAC9B00F82DF0 /* Coordinator.swift in Sources */,
 				F6CCEC9429B99BD600893CD3 /* AppDelegate.swift in Sources */,
 				F64152D529BDA51D00B4439D /* LeaguesFactory.swift in Sources */,
+				F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */,
+				F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */,
+				F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */,
 				F6D7F0F729BDACB800F82DF0 /* MainCoordinator.swift in Sources */,
+				F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */,
 				F6CCEC9629B99BD600893CD3 /* SceneDelegate.swift in Sources */,
+				F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,8 +502,12 @@
 				INFOPLIST_FILE = JMFootball/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,8 +533,12 @@
 				INFOPLIST_FILE = JMFootball/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

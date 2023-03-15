@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Core
 import Presentation
 
 class MainCoordinator: Coordinator {
+    var finish: (() -> Void)?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
@@ -17,7 +19,22 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
+        if UserDefaults.alreadySetFavorites() {
+            startLeaguesFlow()
+            return
+        }
+        startWelcomeFlow()
+    }
+    
+    private func startLeaguesFlow() {
         let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+    private func startWelcomeFlow() {
+        let coordinator = WelcomeCoordinator(navigationController: navigationController)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
 }
+

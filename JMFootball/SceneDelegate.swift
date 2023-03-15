@@ -8,6 +8,7 @@
 import UIKit
 import Domain
 import Data
+import Core
 import Presentation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,9 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            
             let navigationController = UINavigationController()
+            UINavigationBar.appearance().backgroundColor = UIColor(hex: "#163A70")
+            UINavigationBar.appearance().barStyle = .black
+            UINavigationBar.appearance().tintColor = .white
+            
             coordinator = MainCoordinator(navigationController: navigationController)
             coordinator?.start()
+            
             window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()

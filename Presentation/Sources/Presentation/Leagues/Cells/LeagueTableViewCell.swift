@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Core
 import Domain
 
 class LeagueTableViewCell: UITableViewCell {
@@ -31,6 +30,8 @@ class LeagueTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    let imageLoader: ImageLoader = ImageLoader()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,10 +50,17 @@ class LeagueTableViewCell: UITableViewCell {
     
     func bind(league: League) {
         nameLabel.text = "\(league.id) - \(league.name)"
-        countryLabel.text = league.country
+        countryLabel.text = league.country.name
         if let url = URL(string: league.logo) {
-            logoImageView.setImage(with: url)
+            imageLoader.loadImage(with: url) { [weak self] image in
+                self?.logoImageView.image = image
+            }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageLoader.cancel()
     }
 }
 
