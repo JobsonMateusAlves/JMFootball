@@ -23,5 +23,9 @@ extension UIImageView {
         }
         task.resume()
     }
+    
+    public func cleanImage() {
+        self.image = nil
+    }
 }
 

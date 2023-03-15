@@ -23,10 +23,12 @@ public class CountriesViewController: UIViewController {
     }()
     
     let coordinator: (Coordinator & Countries)
+    let vieWModel: CountriesViewModel
     
     // MARK: Inits
-    public init(coordinator: (Coordinator & Countries)) {
+    public init(coordinator: (Coordinator & Countries), vieWModel: CountriesViewModel) {
         self.coordinator = coordinator
+        self.vieWModel = vieWModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -38,6 +40,36 @@ public class CountriesViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        setupTableView()
+        loadData()
+    }
+    
+    func loadData() {
+        vieWModel.fetchCountries { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+
+    // MARK: Setup
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CountryTableViewCell.self, forCellReuseIdentifier: "CountryTableViewCell")
+    }
+}
+
+// MARK: - UITableViewDelegate And UITableViewDataSource
+extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return vieWModel.numberOfCountries
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as? CountryTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.bind(country: vieWModel.countryAt(index: indexPath.row))
+        return cell
     }
 }
 

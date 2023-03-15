@@ -24,6 +24,7 @@
 		F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */; };
 		F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */; };
 		F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */; };
+		F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeguesCoordinator.swift; sourceTree = "<group>"; };
 		F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguesFactory.swift; sourceTree = "<group>"; };
 		F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCoordinator.swift; sourceTree = "<group>"; };
+		F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				F64152D429BDA51D00B4439D /* LeaguesFactory.swift */,
 				F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */,
+				F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				F6CCEC9429B99BD600893CD3 /* AppDelegate.swift in Sources */,
 				F64152D529BDA51D00B4439D /* LeaguesFactory.swift in Sources */,
 				F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */,
+				F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */,
 				F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */,
 				F6D7F0F729BDACB800F82DF0 /* MainCoordinator.swift in Sources */,
 				F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */,

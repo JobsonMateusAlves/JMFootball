@@ -19,7 +19,7 @@ class CountriesCoordinator: Coordinator, Countries {
     }
 
     func start() {
-        let controller = CountriesViewController(coordinator: self)
+        let controller = CountriesViewController(coordinator: self, vieWModel: CountriesFactory.createViewModel())
         navigationController.pushViewController(controller, animated: true)
     }
 }
