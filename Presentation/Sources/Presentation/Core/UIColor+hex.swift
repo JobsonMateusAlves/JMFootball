@@ -12,6 +12,7 @@ extension UIColor {
         let hexString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
         
+        // TODO: Remove Deprecated
         if (hexString.hasPrefix("#")) {
             scanner.scanLocation = 1
         }

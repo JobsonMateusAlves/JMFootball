@@ -45,6 +45,8 @@ class LeagueCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let imageLoader: ImageLoader = ImageLoader()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -63,9 +65,16 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     
     func bind(league: League) {
         nameLabel.text = league.name
-        if let logoURL = URL(string: league.logo) {
-            logoImageView.setImage(with: logoURL)
+        if let url = URL(string: league.logo) {
+            imageLoader.loadImage(with: url) { [weak self] image in
+                self?.logoImageView.image = image
+            }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageLoader.cancel()
     }
 }
 

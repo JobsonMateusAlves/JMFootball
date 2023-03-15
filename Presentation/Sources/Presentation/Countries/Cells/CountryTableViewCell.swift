@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Core
 import Domain
 
 class CountryTableViewCell: UITableViewCell {
@@ -25,6 +24,8 @@ class CountryTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    let imageLoader: ImageLoader = ImageLoader()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,10 +44,17 @@ class CountryTableViewCell: UITableViewCell {
     
     func bind(country: Country) {
         nameLabel.text = country.name
-        flagImageView.cleanImage()
+        flagImageView.image = nil
         if let code = country.code, let url = URL(string: "https://flagsapi.com/\(code)/flat/64.png") {
-            flagImageView.setImage(with: url)
+            imageLoader.loadImage(with: url) { [weak self] image in
+                self?.flagImageView.image = image
+            }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageLoader.cancel()
     }
 }
 
