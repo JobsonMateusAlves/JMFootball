@@ -11,13 +11,25 @@ class ImageLoader {
     
     private var task: URLSessionDataTask?
     
-    func loadImage(with url: URL, completion: @escaping (UIImage?) -> Void) {
-        task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+    func loadImage(with url: URL, placeholder: UIImage? = nil, completion: @escaping (UIImage?) -> Void) {
+        let cache = URLCache.shared
+        let request = URLRequest(url: url)
+        if let imageData = cache.cachedResponse(for: request)?.data {
+            DispatchQueue.main.async {
+                completion(UIImage(data: imageData))
+            }
+            return
+        }
+        task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
                 return
             }
+            guard let imageData = data else { return }
             
-            guard let imageData = data, self != nil else { return }
+            if let response = response {
+                let cachedData = CachedURLResponse(response: response, data: imageData)
+                cache.storeCachedResponse(cachedData, for: request)
+            }
             
             DispatchQueue.main.async {
                 completion(UIImage(data: imageData))
