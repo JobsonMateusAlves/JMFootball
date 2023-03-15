@@ -9,10 +9,12 @@ import UIKit
 import Domain
 import Core
 
+// MARK: - FavoriteLeagues Actions Protocol
 public protocol FavoriteLeagues {
     func startAddFavoriteLeagues()
 }
 
+// MARK: - FavoriteLeaguesViewController
 public class FavoriteLeaguesViewController: UIViewController {
 
     // MARK: Properties
@@ -84,6 +86,7 @@ public class FavoriteLeaguesViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate And UICollectionViewDataSource
 extension FavoriteLeaguesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.numberOfLeagues + 1
@@ -109,6 +112,7 @@ extension FavoriteLeaguesViewController: UICollectionViewDelegate, UICollectionV
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension FavoriteLeaguesViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == viewModel.numberOfLeagues {

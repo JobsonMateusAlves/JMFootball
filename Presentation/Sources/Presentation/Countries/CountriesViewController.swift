@@ -9,11 +9,14 @@ import UIKit
 import Domain
 import Core
 
+// MARK: - Countries Actions Protocol
 public protocol Countries {
     
 }
 
+// MARK: - CountriesViewController
 public class CountriesViewController: UIViewController {
+    
     // MARK: Properties
     private let tableView: UITableView = {
         let tableView: UITableView = UITableView()

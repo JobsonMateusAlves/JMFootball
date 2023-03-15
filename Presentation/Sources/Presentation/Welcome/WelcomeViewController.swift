@@ -9,12 +9,12 @@ import UIKit
 import Domain
 import Core
 
-// TODO: Improve Layout
-// MARK: - LeaguesViewController
+// MARK: - Welcome Actions Protocol
 public protocol Welcome {
     func startFavoritesFlow()
 }
 
+// MARK: - WelcomeViewController
 public class WelcomeViewController: UIViewController {
 
     // MARK: Properties
