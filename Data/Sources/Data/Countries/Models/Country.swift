@@ -11,8 +11,27 @@ import Domain
 
 public struct Country: Codable {
     let name: String
-    let code: String?
-    let flag: String?
+    var code: String?
+    var flag: String?
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.code = try container.decodeIfPresent(String.self, forKey: .code)
+        if let countryCode = self.code {
+            self.flag = "https://flagsapi.com/\(countryCode)/flat/64.png"
+        }
+    }
+    
+    public init(
+        name: String,
+        code: String? = nil,
+        flag: String? = nil
+    ) {
+        self.name = name
+        self.code = code
+        self.flag = flag
+    }
 }
 
 extension Country {

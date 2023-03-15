@@ -13,9 +13,9 @@ class CountryTableViewCell: UITableViewCell {
     // MARK: Properties
     let nameLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -45,7 +45,7 @@ class CountryTableViewCell: UITableViewCell {
     func bind(country: Country) {
         nameLabel.text = country.name
         flagImageView.image = nil
-        if let code = country.code, let url = URL(string: "https://flagsapi.com/\(code)/flat/64.png") {
+        if let flag = country.flag, let url = URL(string: flag) {
             imageLoader.loadImage(with: url) { [weak self] image in
                 self?.flagImageView.image = image
             }
@@ -73,11 +73,14 @@ extension CountryTableViewCell {
         let constraints: [NSLayoutConstraint] = [
             flagImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             flagImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            flagImageView.heightAnchor.constraint(equalToConstant: 30),
-            flagImageView.widthAnchor.constraint(equalToConstant: 30)
+            flagImageView.heightAnchor.constraint(equalToConstant: 32),
+            flagImageView.widthAnchor.constraint(equalToConstant: 32)
         ]
         
         NSLayoutConstraint.activate(constraints)
+        
+        layoutIfNeeded()
+        flagImageView.layer.cornerRadius = flagImageView.frame.width / 2
     }
     
     func setupNameLabelLayout() {
