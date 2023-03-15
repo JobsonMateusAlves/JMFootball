@@ -21,7 +21,7 @@ public class CountriesViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .primaryBackground
+        tableView.backgroundColor = .primaryBackgroundColor
         return tableView
     }()
     
@@ -81,7 +81,7 @@ extension CountriesViewController {
 
     func setupLayout() {
         setupTableViewLayout()
-        view.backgroundColor = .navigationBarBackground // TODO: Create colors
+        view.backgroundColor = .navigationBarBackgroundColor // TODO: Create colors
     }
 
     func setupTableViewLayout() {

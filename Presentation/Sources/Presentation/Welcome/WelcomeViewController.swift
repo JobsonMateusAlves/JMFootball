@@ -41,7 +41,7 @@ public class WelcomeViewController: UIViewController {
         let button: UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Start", for: .normal)
-        button.backgroundColor = .buttonBackground
+        button.backgroundColor = .buttonBackgroundColor
         button.tintColor = .white
         button.layer.cornerRadius = 8
         return button

@@ -20,7 +20,7 @@ class AddItemCollectionViewCell: UICollectionViewCell {
     let backgroundCircleView: UIView = {
         let view: UIView = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondaryBackground
+        view.backgroundColor = .secondaryBackgroundColor
         return view
     }()
     
@@ -34,7 +34,7 @@ class AddItemCollectionViewCell: UICollectionViewCell {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.textColor = .secondaryText
+        label.textColor = .secondaryTextColor
         label.font = .systemFont(ofSize: 12)
         label.text = "Add"
         return label
@@ -125,7 +125,7 @@ extension AddItemCollectionViewCell {
         
         externalBackgroundCircleView.layer.cornerRadius = externalBackgroundCircleView.frame.width / 2
         externalBackgroundCircleView.layer.borderWidth = 2
-        externalBackgroundCircleView.layer.borderColor = UIColor.primaryBorder.withAlphaComponent(0.6).cgColor
+        externalBackgroundCircleView.layer.borderColor = UIColor.primaryBorderColor.withAlphaComponent(0.6).cgColor
         
         backgroundCircleView.layer.cornerRadius = backgroundCircleView.frame.width / 2
     }
