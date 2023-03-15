@@ -27,7 +27,7 @@ public class FavoriteLeaguesViewController: JMViewController {
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .primaryBackgroundColor
-        
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
