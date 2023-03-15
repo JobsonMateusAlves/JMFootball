@@ -26,7 +26,7 @@ public class FavoriteLeaguesViewController: UIViewController {
         
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor(hex: "#151515")
+        collectionView.backgroundColor = .primaryBackground
         
         return collectionView
     }()
@@ -34,7 +34,7 @@ public class FavoriteLeaguesViewController: UIViewController {
     private let headerView: HeaderView = {
         let view = HeaderView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(hex: "#151515")
+        view.backgroundColor = .primaryBackground
         view.bind(title: "Favorite Leagues")
         return view
     }()
@@ -155,7 +155,7 @@ extension FavoriteLeaguesViewController {
     func setupLayout() {
         setupHeaderLayout()
         setupCollectionViewLayout()
-        view.backgroundColor = UIColor(hex: "#163A70")
+        view.backgroundColor = .navigationBarBackground
     }
     
     func setupHeaderLayout() {
