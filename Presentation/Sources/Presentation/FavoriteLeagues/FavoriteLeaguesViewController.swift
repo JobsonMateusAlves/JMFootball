@@ -15,7 +15,7 @@ public protocol FavoriteLeagues {
 }
 
 // MARK: - FavoriteLeaguesViewController
-public class FavoriteLeaguesViewController: UIViewController {
+public class FavoriteLeaguesViewController: JMViewController {
 
     // MARK: Properties
     private let collectionView: UICollectionView = {
@@ -38,7 +38,7 @@ public class FavoriteLeaguesViewController: UIViewController {
         view.bind(title: "Favorite Leagues")
         return view
     }()
-
+    
     let coordinator: (Coordinator & FavoriteLeagues)
     let viewModel: FavoriteLeaguesViewModel
     
@@ -56,11 +56,7 @@ public class FavoriteLeaguesViewController: UIViewController {
     // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = ""
         
-        navigationController?.isNavigationBarHidden = true
-        
-        setupLayout()
         setupCollectionView()
         
         loadData()
@@ -146,7 +142,8 @@ extension FavoriteLeaguesViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Layout
 extension FavoriteLeaguesViewController {
 
-    func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
         setupHeaderLayout()
         setupCollectionViewLayout()
         view.backgroundColor = .navigationBarBackgroundColor
@@ -156,7 +153,7 @@ extension FavoriteLeaguesViewController {
         view.addSubview(headerView)
         
         let constraints: [NSLayoutConstraint] = [
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.topAnchor.constraint(equalTo: appHeaderView.bottomAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 56)
