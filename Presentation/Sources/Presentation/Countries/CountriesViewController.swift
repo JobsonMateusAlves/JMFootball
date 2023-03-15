@@ -15,7 +15,7 @@ public protocol Countries {
 }
 
 // MARK: - CountriesViewController
-public class CountriesViewController: UIViewController {
+public class CountriesViewController: JMViewController {
     
     // MARK: Properties
     private let tableView: UITableView = {
@@ -42,7 +42,6 @@ public class CountriesViewController: UIViewController {
     // MARK: LifeCycle
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
         setupTableView()
         loadData()
     }
@@ -79,7 +78,8 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Layout
 extension CountriesViewController {
 
-    func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
         setupTableViewLayout()
         view.backgroundColor = .navigationBarBackgroundColor // TODO: Create colors
     }
@@ -88,7 +88,7 @@ extension CountriesViewController {
         view.addSubview(tableView)
 
         let constraints: [NSLayoutConstraint] = [
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: appHeaderView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
