@@ -21,9 +21,11 @@ class ImageLoader {
             return
         }
         task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
+            if let error = error {
+                print("🏞️ ImageLoaderError: \(error.localizedDescription)")
                 return
             }
+            
             guard let imageData = data else { return }
             
             if let response = response {

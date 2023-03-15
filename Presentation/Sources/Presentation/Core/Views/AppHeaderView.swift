@@ -111,12 +111,7 @@ extension AppHeaderView {
     func setupBackButtonLayout() {
         addSubview(backButton)
 
-        let constraints: [NSLayoutConstraint] = [
-            backButton.widthAnchor.constraint(equalToConstant: 16),
-            backButton.heightAnchor.constraint(equalToConstant: 16)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
+        backButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
     }
     
     func setupSeparatorLayout() {
