@@ -81,7 +81,7 @@ extension CountriesViewController {
 
     func setupLayout() {
         setupTableViewLayout()
-        view.backgroundColor = UIColor(hex: "#163A70")
+        view.backgroundColor = UIColor(hex: "#163A70") // TODO: Create colors
     }
 
     func setupTableViewLayout() {
