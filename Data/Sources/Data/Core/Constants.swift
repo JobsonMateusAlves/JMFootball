@@ -7,4 +7,5 @@
 
 import Foundation
 
+// TODO: Add config file
 let apiKey = ""
