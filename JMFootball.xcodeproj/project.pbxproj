@@ -25,6 +25,8 @@
 		F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */; };
 		F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */; };
 		F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */; };
+		F6D8799629C290C9004CDDC6 /* LeaguesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799529C290C9004CDDC6 /* LeaguesCoordinator.swift */; };
+		F6D8799829C2CD62004CDDC6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		F6D8798F29BFF453004CDDC6 /* FavoriteLeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguesFactory.swift; sourceTree = "<group>"; };
 		F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCoordinator.swift; sourceTree = "<group>"; };
 		F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFactory.swift; sourceTree = "<group>"; };
+		F6D8799529C290C9004CDDC6 /* LeaguesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesCoordinator.swift; sourceTree = "<group>"; };
+		F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 				F6D7F0F629BDACB800F82DF0 /* MainCoordinator.swift */,
 				F6D7F0FE29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift */,
 				F6D8799129C02C3A004CDDC6 /* CountriesCoordinator.swift */,
+				F6D8799529C290C9004CDDC6 /* LeaguesCoordinator.swift */,
+				F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 				F6D7F0FB29BEA28D00F82DF0 /* WelcomeCoordinator.swift in Sources */,
 				F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */,
 				F6D8799029BFF453004CDDC6 /* FavoriteLeaguesFactory.swift in Sources */,
+				F6D8799629C290C9004CDDC6 /* LeaguesCoordinator.swift in Sources */,
 				F6D7F0F729BDACB800F82DF0 /* MainCoordinator.swift in Sources */,
 				F6D8799229C02C3A004CDDC6 /* CountriesCoordinator.swift in Sources */,
 				F6CCEC9629B99BD600893CD3 /* SceneDelegate.swift in Sources */,
 				F6D7F0FF29BEF13600F82DF0 /* FavoriteLeguesCoordinator.swift in Sources */,
+				F6D8799829C2CD62004CDDC6 /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

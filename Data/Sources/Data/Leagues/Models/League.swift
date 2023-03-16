@@ -87,6 +87,15 @@ extension League {
 }
 
 extension League {
+    init(from presentationModel: Domain.League) {
+        self.id = presentationModel.id
+        self.name = presentationModel.name
+        self.type = presentationModel.type
+        self.logo = presentationModel.logo
+        self.country = Country(from: presentationModel.country)
+        self.favorite = presentationModel.favorite
+    }
+    
     func asPresentationModel() -> Domain.League {
         Domain.League(id: id, name: name, type: type, logo: logo, country: country.asPresentationModel(), favorite: favorite)
     }

@@ -34,7 +34,7 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
     
     public func fetchLeagues(by country: Domain.Country, completion: @escaping (Result<[Domain.League], Error>) -> Void) {
         let dbLeagues = (try? AppDatabase.shared?.leagueDatabase.get(by: Country(from: country))) ?? []
-        
+
         if !dbLeagues.isEmpty {
             completion(.success(dbLeagues.map({ $0.asPresentationModel() })))
             return
@@ -56,6 +56,15 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
         let savedLeagues = (try? AppDatabase.shared?.leagueDatabase.getAll()) ?? []
         let favoritedLeagues = savedLeagues.filter({ $0.favorite })
         completion(.success(favoritedLeagues.map({ $0.asPresentationModel() })))
+    }
+    
+    public func updateLeague(_ league: Domain.League, completion: @escaping (Result<Domain.League, Error>) -> Void) {
+        do {
+            try AppDatabase.shared?.leagueDatabase.update(league: League(from: league))
+            completion(.success(league))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 

@@ -13,7 +13,7 @@ public struct League {
     public let type: String
     public let logo: String
     public let country: Country
-    public let favorite: Bool
+    public var favorite: Bool
     
     public init(
         id: Int,

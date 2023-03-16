@@ -11,8 +11,8 @@ import Domain
 import Data
 
 final class LeaguesFactory {
-    static func createViewModel() -> LeaguesViewModel {
-        LeaguesViewModelImpl(useCase: createUseCase())
+    static func createViewModel(with country: Domain.Country? = nil) -> LeaguesViewModel {
+        LeaguesViewModelImpl(useCase: createUseCase(), country: country)
     }
     
     static func createUseCase() -> LeaguesUseCase {

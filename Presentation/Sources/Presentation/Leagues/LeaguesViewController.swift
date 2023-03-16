@@ -6,23 +6,32 @@
 //
 
 import UIKit
+import Core
 import Domain
+
+// MARK: - Leagues Actions Protocol
+public protocol Leagues {
+    
+}
 
 // TODO: Improve Layout
 // MARK: - LeaguesViewController
-public class LeaguesViewController: UIViewController {
+public class LeaguesViewController: JMViewController {
 
     // MARK: Properties
     private let tableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .primaryBackgroundColor
         return tableView
     }()
 
+    private let coordinator: (Coordinator & Leagues)
     private let viewModel: LeaguesViewModel
 
     // MARK: Inits
-    public init(viewModel: LeaguesViewModel) {
+    public init(coordinator: (Coordinator & Leagues), viewModel: LeaguesViewModel) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,13 +52,6 @@ public class LeaguesViewController: UIViewController {
 
     func loadData() {
         viewModel.fetchLeagues { [weak self] in
-            if let error = self?.viewModel.error {
-                // TODO: Remove and improve error handling
-                let alert: UIAlertController = UIAlertController(title: "Atenção", message: error, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-                self?.present(alert, animated: true)
-                return
-            }
             self?.tableView.reloadData()
         }
     }
@@ -65,7 +67,7 @@ public class LeaguesViewController: UIViewController {
 // MARK: - UITableViewDelegate And UITableViewDataSource
 extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfLeagues
+        viewModel.numberOfLeagues
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,12 +77,23 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bind(league: viewModel.leagueAt(index: indexPath.row))
         return cell
     }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.favoriteLeague(league: viewModel.leagueAt(index: indexPath.row))
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        64
+    }
 }
 
 // MARK: - Layout
 extension LeaguesViewController {
 
-    func setupLayout() {
+    override func setupLayout() {
+        super.setupLayout()
         setupTableViewLayout()
     }
 
@@ -88,7 +101,7 @@ extension LeaguesViewController {
         view.addSubview(tableView)
 
         let constraints: [NSLayoutConstraint] = [
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: appHeaderView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)

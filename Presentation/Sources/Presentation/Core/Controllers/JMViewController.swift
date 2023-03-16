@@ -8,6 +8,8 @@
 import UIKit
 
 public class JMViewController: UIViewController {
+    
+    // MARK: Properties
     let appHeaderView: AppHeaderView = {
         let view: AppHeaderView = AppHeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +41,7 @@ extension JMViewController: AppHeaderViewBackButtonDelegate {
 extension JMViewController {
     @objc func setupLayout() {
         setupAppHeaderViewLayout()
+        view.backgroundColor = .black
     }
     
     private func setupAppHeaderViewLayout() {
