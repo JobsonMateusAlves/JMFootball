@@ -39,8 +39,8 @@ public class FavoriteLeaguesViewController: JMViewController {
         return view
     }()
     
-    let coordinator: (Coordinator & FavoriteLeagues)
-    let viewModel: FavoriteLeaguesViewModel
+    private let coordinator: (Coordinator & FavoriteLeagues)
+    private let viewModel: FavoriteLeaguesViewModel
     
     // MARK: Inits
     public init(coordinator: (Coordinator & FavoriteLeagues), viewModel: FavoriteLeaguesViewModel) {
@@ -146,7 +146,6 @@ extension FavoriteLeaguesViewController {
         super.setupLayout()
         setupHeaderLayout()
         setupCollectionViewLayout()
-        view.backgroundColor = .navigationBarBackgroundColor
     }
     
     func setupHeaderLayout() {

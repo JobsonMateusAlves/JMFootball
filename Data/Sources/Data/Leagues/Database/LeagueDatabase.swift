@@ -87,7 +87,9 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
     
     func get(by country: Country) throws -> [League] {
         try dbQueue.read { db in
-            let statement: QueryInterfaceRequest<League> = League.filter(key: country.name).including(required: countryAssociation)
+            let statement: QueryInterfaceRequest<League> = League
+                .filter(Column("countryName") == country.name)
+                .including(required: countryAssociation)
             return try statement.fetchAll(db)
         }
     }

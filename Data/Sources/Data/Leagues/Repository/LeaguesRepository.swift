@@ -34,7 +34,7 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
     
     public func fetchLeagues(by country: Domain.Country, completion: @escaping (Result<[Domain.League], Error>) -> Void) {
         let dbLeagues = (try? AppDatabase.shared?.leagueDatabase.get(by: Country(from: country))) ?? []
-        
+
         if !dbLeagues.isEmpty {
             completion(.success(dbLeagues.map({ $0.asPresentationModel() })))
             return

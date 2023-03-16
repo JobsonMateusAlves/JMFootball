@@ -27,8 +27,8 @@ class MainCoordinator: Coordinator {
     }
     
     private func startLeaguesFlow() {
-        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
-        navigationController.pushViewController(viewController, animated: false)
+//        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
+//        navigationController.pushViewController(viewController, animated: false)
     }
     
     private func startWelcomeFlow() {

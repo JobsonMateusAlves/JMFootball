@@ -51,7 +51,7 @@ public class WelcomeViewController: UIViewController {
         return .lightContent
     }
     
-    let coordinator: (Coordinator & Welcome)
+    private let coordinator: (Coordinator & Welcome)
     
     // MARK: Inits
     public init(coordinator: (Coordinator & Welcome)) {

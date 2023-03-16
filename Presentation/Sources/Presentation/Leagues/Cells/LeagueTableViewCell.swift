@@ -70,6 +70,7 @@ extension LeagueTableViewCell {
         setupLogoImageViewLayout()
         setupNameLabelLayout()
         setupCountryLabelLayout()
+        backgroundColor = .clear
     }
     
     func setupLogoImageViewLayout() {

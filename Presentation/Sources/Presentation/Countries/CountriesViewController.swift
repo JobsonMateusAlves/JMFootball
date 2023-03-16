@@ -11,7 +11,7 @@ import Core
 
 // MARK: - Countries Actions Protocol
 public protocol Countries {
-    
+    func startLeaguesFlow(with country: Country)
 }
 
 // MARK: - CountriesViewController
@@ -25,13 +25,13 @@ public class CountriesViewController: JMViewController {
         return tableView
     }()
     
-    let coordinator: (Coordinator & Countries)
-    let vieWModel: CountriesViewModel
+    private let coordinator: (Coordinator & Countries)
+    private let viewModel: CountriesViewModel
     
     // MARK: Inits
-    public init(coordinator: (Coordinator & Countries), vieWModel: CountriesViewModel) {
+    public init(coordinator: (Coordinator & Countries), viewModel: CountriesViewModel) {
         self.coordinator = coordinator
-        self.vieWModel = vieWModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -47,7 +47,7 @@ public class CountriesViewController: JMViewController {
     }
     
     func loadData() {
-        vieWModel.fetchCountries { [weak self] in
+        viewModel.fetchCountries { [weak self] in
             self?.tableView.reloadData()
         }
     }
@@ -63,15 +63,19 @@ public class CountriesViewController: JMViewController {
 // MARK: - UITableViewDelegate And UITableViewDataSource
 extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vieWModel.numberOfCountries
+        return viewModel.numberOfCountries
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as? CountryTableViewCell else {
             return UITableViewCell()
         }
-        cell.bind(country: vieWModel.countryAt(index: indexPath.row))
+        cell.bind(country: viewModel.countryAt(index: indexPath.row))
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator.startLeaguesFlow(with: viewModel.countryAt(index: indexPath.row))
     }
 }
 
@@ -81,7 +85,6 @@ extension CountriesViewController {
     override func setupLayout() {
         super.setupLayout()
         setupTableViewLayout()
-        view.backgroundColor = .navigationBarBackgroundColor // TODO: Create colors
     }
 
     func setupTableViewLayout() {

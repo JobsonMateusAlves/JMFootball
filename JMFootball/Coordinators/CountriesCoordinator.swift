@@ -7,9 +7,11 @@
 
 import UIKit
 import Core
+import Domain
 import Presentation
 
 class CountriesCoordinator: Coordinator, Countries {
+    
     var finish: (() -> Void)?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -19,7 +21,13 @@ class CountriesCoordinator: Coordinator, Countries {
     }
 
     func start() {
-        let controller = CountriesViewController(coordinator: self, vieWModel: CountriesFactory.createViewModel())
+        let controller = CountriesViewController(coordinator: self, viewModel: CountriesFactory.createViewModel())
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func startLeaguesFlow(with country: Domain.Country) {
+        let coordinator = LeaguesCoordinator(navigationController: navigationController, country: country)
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }
