@@ -11,7 +11,7 @@ import Core
 
 // MARK: - Welcome Actions Protocol
 public protocol Welcome {
-    func startFavoritesFlow()
+    func finishWelcomeFlow()
 }
 
 // MARK: - WelcomeViewController
@@ -77,7 +77,7 @@ public class WelcomeViewController: UIViewController {
     }
     
     @objc func start() {
-        coordinator.startFavoritesFlow()
+        coordinator.finishWelcomeFlow()
     }
 }
 

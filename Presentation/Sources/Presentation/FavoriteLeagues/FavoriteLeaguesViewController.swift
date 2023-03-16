@@ -11,7 +11,8 @@ import Core
 
 // MARK: - FavoriteLeagues Actions Protocol
 public protocol FavoriteLeagues {
-    func startAddFavoriteLeagues()
+    func startAddFavoriteLeaguesFlow()
+    func finishFavoriteLeaguesFlow()
 }
 
 // MARK: - FavoriteLeaguesViewController
@@ -58,8 +59,17 @@ public class FavoriteLeaguesViewController: JMViewController {
         super.viewDidLoad()
         
         setupCollectionView()
+        setupHeaderView()
         
         loadData()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
+        
+        headerView.set(buttonTitle: viewModel.numberOfLeagues == 0 ? "Skip" : "Continue")
     }
     
     func setupCollectionView() {
@@ -69,10 +79,20 @@ public class FavoriteLeaguesViewController: JMViewController {
         collectionView.register(LeagueCollectionViewCell.self, forCellWithReuseIdentifier: "LeagueCollectionViewCell")
     }
     
+    func setupHeaderView() {
+        headerView.buttonDelegate = self
+    }
+    
     func loadData() {
         viewModel.fetchFavoriteLeagues { [weak self] in
             self?.collectionView.reloadData()
         }
+    }
+}
+
+extension FavoriteLeaguesViewController: HeaderViewButtonDelegate {
+    func onHeaderButtonClick() {
+        coordinator.finishFavoriteLeaguesFlow()
     }
 }
 
@@ -97,7 +117,7 @@ extension FavoriteLeaguesViewController: UICollectionViewDelegate, UICollectionV
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == viewModel.numberOfLeagues {
-            coordinator.startAddFavoriteLeagues()
+            coordinator.startAddFavoriteLeaguesFlow()
         }
     }
 }

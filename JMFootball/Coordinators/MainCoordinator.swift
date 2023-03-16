@@ -20,19 +20,32 @@ class MainCoordinator: Coordinator {
 
     func start() {
         if UserDefaults.alreadySetFavorites() {
-            startLeaguesFlow()
+            startHomeFlow()
             return
         }
         startWelcomeFlow()
     }
     
-    private func startLeaguesFlow() {
-//        let viewController = LeaguesViewController(viewModel: LeaguesFactory.createViewModel())
-//        navigationController.pushViewController(viewController, animated: false)
-    }
-    
     private func startWelcomeFlow() {
         let coordinator = WelcomeCoordinator(navigationController: navigationController)
+        coordinator.finish = { [weak self] in
+            self?.startFavoriteLeaguesFlow()
+        }
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
+    private func startFavoriteLeaguesFlow() {
+        let coordinator = FavoriteLeguesCoordinator(navigationController: navigationController)
+        coordinator.finish = { [weak self] in
+            self?.startHomeFlow()
+        }
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
+    private func startHomeFlow() {
+        let coordinator = HomeCoordinator(navigationController: navigationController)
         childCoordinators.append(coordinator)
         coordinator.start()
     }

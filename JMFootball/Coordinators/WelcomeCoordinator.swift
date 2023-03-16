@@ -20,12 +20,12 @@ class WelcomeCoordinator: Coordinator, Welcome {
 
     func start() {
         let viewController = WelcomeViewController(coordinator: self)
-        navigationController.pushViewController(viewController, animated: false)
+        UIView.transition(with: navigationController.view, duration: 0.5, options: [.transitionCrossDissolve]) { [weak self] in
+            self?.navigationController.setViewControllers([viewController], animated: true)
+        }
     }
     
-    func startFavoritesFlow() {
-        let coordinator = FavoriteLeguesCoordinator(navigationController: navigationController)
-        childCoordinators.append(coordinator)
-        coordinator.start()
+    func finishWelcomeFlow() {
+        finish?()
     }
 }

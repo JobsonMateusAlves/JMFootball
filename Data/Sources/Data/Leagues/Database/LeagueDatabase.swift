@@ -12,6 +12,7 @@ protocol LeagueDatabase {
     func createTable() throws
     func insert(league: League) throws
     func insert(leagues: [League]) throws
+    func update(league: League) throws
     func get(by id: Int) throws -> League?
     func get(by country: Country) throws -> [League]
     func getAll() throws -> [League]
@@ -34,6 +35,7 @@ extension League: PersistableRecord, FetchableRecord, TableRecord {
 }
 
 public final class LeagueDatabaseImpl: LeagueDatabase {
+    
     let dbQueue: DatabaseQueue
     
     private let countryAssociation: HasOneAssociation<League, Country> = League.hasOne(
@@ -66,7 +68,7 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
     }
     
     func insert(league: League) throws {
-        try dbQueue.write{ db in
+        try dbQueue.write { db in
             try league.insert(in: db)
             try league.country.insert(db)
         }
@@ -76,6 +78,10 @@ public final class LeagueDatabaseImpl: LeagueDatabase {
         try leagues.forEach { league in
             try insert(league: league)
         }
+    }
+    
+    func update(league: League) throws {
+        try insert(league: league)
     }
     
     func get(by id: Int) throws -> League? {

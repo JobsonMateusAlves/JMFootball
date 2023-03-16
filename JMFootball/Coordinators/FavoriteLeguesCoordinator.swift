@@ -10,32 +10,30 @@ import Core
 import Presentation
 
 class FavoriteLeguesCoordinator: Coordinator, FavoriteLeagues {
+    
     var finish: (() -> Void)?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    var newNavigationController: UINavigationController?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        newNavigationController = UINavigationController(
-            rootViewController: FavoriteLeaguesViewController(
-                coordinator: self,
-                viewModel: FavoriteLeaguesFactory.createViewModel()
-            )
-        )
-        newNavigationController?.modalPresentationStyle = .overFullScreen
-        if let navigation = newNavigationController {
-            navigationController.present(navigation, animated: true)
+        let controller = FavoriteLeaguesViewController(coordinator: self, viewModel: FavoriteLeaguesFactory.createViewModel())
+        UIView.transition(with: navigationController.view, duration: 0.8, options: [.transitionFlipFromRight]) { [weak self] in
+            self?.navigationController.viewControllers.removeAll()
+            self?.navigationController.setViewControllers([controller], animated: true)
         }
     }
     
-    func startAddFavoriteLeagues() {
-        guard let navigation = newNavigationController else { return }
-        let coordinator = CountriesCoordinator(navigationController: navigation)
+    func startAddFavoriteLeaguesFlow() {
+        let coordinator = CountriesCoordinator(navigationController: navigationController)
         childCoordinators.append(coordinator)
         coordinator.start()
+    }
+    
+    func finishFavoriteLeaguesFlow() {
+        finish?()
     }
 }

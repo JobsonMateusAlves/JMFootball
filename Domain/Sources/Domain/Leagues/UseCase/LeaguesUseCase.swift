@@ -12,6 +12,7 @@ public protocol LeaguesUseCase {
     func fetchLeagues(completion: @escaping (Result<[League], Error>) -> Void)
     func fetchLeagues(by country: Country, completion: @escaping (Result<[League], Error>) -> Void)
     func fetchFavoriteLeagues(completion: @escaping (Result<[League], Error>) -> Void)
+    func favoriteLeague(_ league: League, completion: @escaping (Result<League, Error>) -> Void)
 }
 
 // MARK: Implementation
@@ -49,5 +50,11 @@ public final class LeaguesUseCaseImpl: LeaguesUseCase {
     
     public func fetchFavoriteLeagues(completion: @escaping (Result<[League], Error>) -> Void) {
         leaguesRepository.fetchFavoriteLeagues(completion: completion)
+    }
+    
+    public func favoriteLeague(_ league: League, completion: @escaping (Result<League, Error>) -> Void) {
+        var newLeague = league
+        newLeague.favorite.toggle()
+        leaguesRepository.updateLeague(newLeague, completion: completion)
     }
 }

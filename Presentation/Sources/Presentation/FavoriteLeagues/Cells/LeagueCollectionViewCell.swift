@@ -65,6 +65,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     
     func bind(league: League) {
         nameLabel.text = league.name
+        logoImageView.image = nil
         if let url = URL(string: league.logo) {
             imageLoader.loadImage(with: url) { [weak self] image in
                 self?.logoImageView.image = image
@@ -122,10 +123,10 @@ extension LeagueCollectionViewCell {
         backgroundCircleView.addSubview(logoImageView)
         
         let constraints: [NSLayoutConstraint] = [
-            logoImageView.topAnchor.constraint(equalTo: backgroundCircleView.topAnchor, constant: 12),
-            logoImageView.leadingAnchor.constraint(equalTo: backgroundCircleView.leadingAnchor, constant: 12),
-            logoImageView.trailingAnchor.constraint(equalTo: backgroundCircleView.trailingAnchor, constant: -12),
-            logoImageView.bottomAnchor.constraint(equalTo: backgroundCircleView.bottomAnchor, constant: -12)
+            logoImageView.topAnchor.constraint(equalTo: backgroundCircleView.topAnchor, constant: 8),
+            logoImageView.leadingAnchor.constraint(equalTo: backgroundCircleView.leadingAnchor, constant: 8),
+            logoImageView.trailingAnchor.constraint(equalTo: backgroundCircleView.trailingAnchor, constant: -8),
+            logoImageView.bottomAnchor.constraint(equalTo: backgroundCircleView.bottomAnchor, constant: -8)
         ]
         
         NSLayoutConstraint.activate(constraints)

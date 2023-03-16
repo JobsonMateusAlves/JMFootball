@@ -52,6 +52,7 @@ class LeagueTableViewCell: UITableViewCell {
     
     func bind(league: League) {
         nameLabel.text = "\(league.name)"
+        logoImageView.image = nil
         if let url = URL(string: league.logo) {
             imageLoader.loadImage(with: url) { [weak self] image in
                 self?.logoImageView.image = image

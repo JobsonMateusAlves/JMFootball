@@ -57,6 +57,15 @@ public final class LeaguesRepositoryImpl: Domain.LeaguesRepository {
         let favoritedLeagues = savedLeagues.filter({ $0.favorite })
         completion(.success(favoritedLeagues.map({ $0.asPresentationModel() })))
     }
+    
+    public func updateLeague(_ league: Domain.League, completion: @escaping (Result<Domain.League, Error>) -> Void) {
+        do {
+            try AppDatabase.shared?.leagueDatabase.update(league: League(from: league))
+            completion(.success(league))
+        } catch {
+            completion(.failure(error))
+        }
+    }
 }
 
 extension LeaguesRepositoryImpl {
