@@ -76,6 +76,7 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator.startLeaguesFlow(with: viewModel.countryAt(index: indexPath.row))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

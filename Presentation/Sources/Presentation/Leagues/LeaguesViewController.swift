@@ -67,7 +67,7 @@ public class LeaguesViewController: JMViewController {
 // MARK: - UITableViewDelegate And UITableViewDataSource
 extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfLeagues
+        viewModel.numberOfLeagues
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,6 +76,14 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.bind(league: viewModel.leagueAt(index: indexPath.row))
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        64
     }
 }
 

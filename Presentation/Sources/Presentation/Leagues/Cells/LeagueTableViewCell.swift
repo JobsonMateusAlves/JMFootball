@@ -18,16 +18,18 @@ class LeagueTableViewCell: UITableViewCell {
         return label
     }()
     
-    let countryLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
-    
     let logoImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let favoritedImageView: UIImageView = {
+        let imageView: UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -49,13 +51,13 @@ class LeagueTableViewCell: UITableViewCell {
     }
     
     func bind(league: League) {
-        nameLabel.text = "\(league.id) - \(league.name)"
-        countryLabel.text = league.country.name
+        nameLabel.text = "\(league.name)"
         if let url = URL(string: league.logo) {
             imageLoader.loadImage(with: url) { [weak self] image in
                 self?.logoImageView.image = image
             }
         }
+        favoritedImageView.image = league.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
     }
     
     override func prepareForReuse() {
@@ -69,7 +71,7 @@ extension LeagueTableViewCell {
     func setupLayout() {
         setupLogoImageViewLayout()
         setupNameLabelLayout()
-        setupCountryLabelLayout()
+        setupFavoritedImageViewLayout()
         backgroundColor = .clear
     }
     
@@ -77,10 +79,10 @@ extension LeagueTableViewCell {
         addSubview(logoImageView)
         
         let constraints: [NSLayoutConstraint] = [
-            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            logoImageView.heightAnchor.constraint(equalToConstant: 16),
-            logoImageView.widthAnchor.constraint(equalToConstant: 16)
+            logoImageView.heightAnchor.constraint(equalToConstant: 32),
+            logoImageView.widthAnchor.constraint(equalToConstant: 32)
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -91,21 +93,21 @@ extension LeagueTableViewCell {
         
         let constraints: [NSLayoutConstraint] = [
             nameLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 16)
         ]
         
         NSLayoutConstraint.activate(constraints)
     }
     
-    func setupCountryLabelLayout() {
-        addSubview(countryLabel)
+    func setupFavoritedImageViewLayout() {
+        addSubview(favoritedImageView)
         
         let constraints: [NSLayoutConstraint] = [
-            countryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            countryLabel.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
-            countryLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            countryLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16)
+            favoritedImageView.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
+            favoritedImageView.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor, constant: 16),
+            favoritedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            favoritedImageView.heightAnchor.constraint(equalToConstant: 32),
+            favoritedImageView.widthAnchor.constraint(equalToConstant: 32)
         ]
         
         NSLayoutConstraint.activate(constraints)
