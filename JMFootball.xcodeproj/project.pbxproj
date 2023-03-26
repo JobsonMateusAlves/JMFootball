@@ -27,7 +27,6 @@
 		F6D8799429C138D0004CDDC6 /* CountriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */; };
 		F6D8799629C290C9004CDDC6 /* LeaguesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799529C290C9004CDDC6 /* LeaguesCoordinator.swift */; };
 		F6D8799829C2CD62004CDDC6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */; };
-		F6D8799B29C2E0D1004CDDC6 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F6D8799A29C2E0D1004CDDC6 /* Dev.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F61D316829D00E3E006A9F3A /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		F64152D429BDA51D00B4439D /* LeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesFactory.swift; sourceTree = "<group>"; };
 		F6CCEC9029B99BD600893CD3 /* JMFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CCEC9329B99BD600893CD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +72,6 @@
 		F6D8799329C138D0004CDDC6 /* CountriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFactory.swift; sourceTree = "<group>"; };
 		F6D8799529C290C9004CDDC6 /* LeaguesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesCoordinator.swift; sourceTree = "<group>"; };
 		F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		F6D8799A29C2E0D1004CDDC6 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +193,7 @@
 		F6D8799929C2E0D1004CDDC6 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				F6D8799A29C2E0D1004CDDC6 /* Dev.xcconfig */,
+				F61D316829D00E3E006A9F3A /* Dev.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -313,7 +312,6 @@
 			files = (
 				F6CCECA029B99BD700893CD3 /* LaunchScreen.storyboard in Resources */,
 				F6CCEC9D29B99BD700893CD3 /* Assets.xcassets in Resources */,
-				F6D8799B29C2E0D1004CDDC6 /* Dev.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +396,7 @@
 /* Begin XCBuildConfiguration section */
 		F6CCECB829B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -512,6 +511,7 @@
 		};
 		F6CCECBB29B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -574,6 +574,7 @@
 		};
 		F6CCECBE29B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -614,6 +615,7 @@
 		};
 		F6CCECC129B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
