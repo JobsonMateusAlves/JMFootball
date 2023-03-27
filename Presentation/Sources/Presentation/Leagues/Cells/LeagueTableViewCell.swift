@@ -11,18 +11,19 @@ import Domain
 class LeagueTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    let nameLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let logoImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = .primaryTextColor
+        return label
     }()
     
     let favoritedImageView: UIImageView = {

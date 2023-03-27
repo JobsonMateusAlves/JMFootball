@@ -42,7 +42,7 @@ public final class CountryDatabaseImpl: CountryDatabase {
                 t.column("name", .text).notNull()
                 t.column("code", .text)
                 t.column("flag", .text)
-                t.primaryKey(["name"], onConflict: .ignore)
+                t.primaryKey(["name"], onConflict: .replace)
             }
         }
     }

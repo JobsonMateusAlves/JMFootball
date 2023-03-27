@@ -38,7 +38,7 @@ extension Country {
     func insert(in db: Database) throws {
         let statement: Statement = try db.makeStatement(
             literal: """
-                INSERT OR IGNORE INTO country (
+                INSERT OR REPLACE INTO country (
                    \(Column("name")),
                    \(Column("code")),
                    \(Column("flag"))
