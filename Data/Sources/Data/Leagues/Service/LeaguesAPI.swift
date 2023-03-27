@@ -38,7 +38,7 @@ extension LeaguesAPI: API {
     }
     
     public var headers: [String : String]? {
-        ["x-apisports-key": apiKey]
+        ["x-apisports-key": Configs.apiFootballApiKey]
     }
     
     public var body: Data? {

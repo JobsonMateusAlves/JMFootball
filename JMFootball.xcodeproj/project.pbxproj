@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F61D316829D00E3E006A9F3A /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		F64152D429BDA51D00B4439D /* LeaguesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesFactory.swift; sourceTree = "<group>"; };
 		F6CCEC9029B99BD600893CD3 /* JMFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CCEC9329B99BD600893CD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		F6CCEC9229B99BD600893CD3 /* JMFootball */ = {
 			isa = PBXGroup;
 			children = (
+				F6D8799929C2E0D1004CDDC6 /* Config */,
 				F6D7F0F329BDAC8E00F82DF0 /* Coordinators */,
 				F64152D329BDA4F800B4439D /* Factories */,
 				F6CCEC9329B99BD600893CD3 /* AppDelegate.swift */,
@@ -186,6 +188,14 @@
 				F6D8799729C2CD62004CDDC6 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		F6D8799929C2E0D1004CDDC6 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F61D316829D00E3E006A9F3A /* Dev.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +396,7 @@
 /* Begin XCBuildConfiguration section */
 		F6CCECB829B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -500,6 +511,7 @@
 		};
 		F6CCECBB29B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,6 +574,7 @@
 		};
 		F6CCECBE29B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -602,6 +615,7 @@
 		};
 		F6CCECC129B99BD700893CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D316829D00E3E006A9F3A /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -16,11 +16,11 @@ public final class CountriesRepositoryImpl: Domain.CountriesRepository {
     }
 
     public func fetchCountries(completion: @escaping (Result<[Domain.Country], Error>) -> Void) {
-        let dbCountries = (try? AppDatabase.shared?.countryDatabase.getAll()) ?? []
-        if !dbCountries.isEmpty {
-            completion(.success(dbCountries.map({ $0.asPresentationModel() })))
-            return
-        }
+//        let dbCountries = (try? AppDatabase.shared?.countryDatabase.getAll()) ?? []
+//        if !dbCountries.isEmpty {
+//            completion(.success(dbCountries.map({ $0.asPresentationModel() })))
+//            return
+//        }
         
         provider.fetchCountries { result in
             switch result {

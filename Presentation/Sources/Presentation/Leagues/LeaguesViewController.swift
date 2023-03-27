@@ -10,11 +10,8 @@ import Core
 import Domain
 
 // MARK: - Leagues Actions Protocol
-public protocol Leagues {
-    
-}
+public protocol Leagues {}
 
-// TODO: Improve Layout
 // MARK: - LeaguesViewController
 public class LeaguesViewController: JMViewController {
 
